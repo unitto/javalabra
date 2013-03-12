@@ -1,0 +1,33 @@
+Aihe: Alkoholitietokantasovellus
+--------------------------------------
+Toteutetaan yksinkertainen alkoholitietokantasovellus, jonka avulla voidaan ylläpitää erilaisia alkoholijuomien maistelukokemuksia.
+
+Ideana käyttöliittymä, jossa käyttäjä voi rekisteröityä tai kirjautua sisään. Tämän jälkeen käyttäjällä on mahdollisuus lisätä tai poistaa alkoholijuomakokemuksia.
+
+Alkoholijuomilla olisi alustavasti näkyvillä normaalit tuotetiedot nimineen ja hintoineen, lyhyt kokeilu- ja makukuvaus sekä yleisarvosana. Ohjelman tulisi myös laskea paras kokemus/hintasuhde sekä alkoholiprosentti/hintasuhde.
+--------------------------------------
+Käyttäjät: Juomisistaan kiinnostuneet henkilöt
+--------------------------------------
+Kaikkien käyttäjien toiminnot:
+
+Rekisteröityminen
+	* Onnistuu mikäli käyttäjä ei löydy järjestelmästä
+
+Käyttäjän kaikkien juomien listaus
+	* Onnistuu mikäli käyttäjällä on lisättyjä juomia
+
+Käyttäjän TOP-5 juomien listaus
+	* Onnistuu mikäli käyttäjällä on lisättyjä juomia
+	* Näyttää 1-5 juomaa
+
+Juomien lisäys
+Juomien poisto
+Juomien listaus
+
+Juomiskerran lisäys
+	* Onnistuu mikäli järjestelmään on lisätty juomia
+Juomiskerran poisto
+	* Onnistuu mikäli järjestelmään on lisätty juomiskertoja
+
+Paras arvosana/hintasuhde listaus
+Paras alkoholi/hintasuhde listaus
