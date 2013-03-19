@@ -21,30 +21,18 @@ public class Main {
             System.out.println("3. Poista käyttäjä");
             System.out.println("4. Lopeta");
             System.out.println("---------------------");
-
             System.out.print("Anna valintanumero: ");
             valinta = lukija.nextInt();
 
             if (valinta == 1) {
                 tunnuksenLisays(lukija, hallinta);
-
             }
             if (valinta == 2) {
                 System.out.println("Sisäänkirjautumista ei ole vielä lisätty\n");
             }
 
             if (valinta == 3) {
-                System.out.print("Anna poistettava tunnus: ");
-                String tun = lukija.next();
-                System.out.print("Anna poistettavan tunnuksen salasana: ");
-                String sal = lukija.next();
-                if (hallinta.poista(tun, sal) == true) {
-                    System.out.println("Tunnuksen poistaminen onnistui.");
-                    hallinta.talleta();
-                } else {
-                    System.out.println("Tunnuksen poistaminen ei onnistunut, tarkasta tunnuksen ja salasanan oikeinkirjoitus.");
-                }
-
+                tunnuksenPoisto(lukija, hallinta);
             }
 
             if (valinta == 4) {
@@ -67,6 +55,19 @@ public class Main {
             hallinta.talleta();
         } else {
             System.out.println("Tunnuksen lisääminen ei onnistunut, kokeile toista tunnusta.");
+        }
+    }
+
+    private static void tunnuksenPoisto(Scanner lukija, KayttajaHallinta hallinta) throws IOException {
+        System.out.print("Anna poistettava tunnus: ");
+        String tun = lukija.next();
+        System.out.print("Anna poistettavan tunnuksen salasana: ");
+        String sal = lukija.next();
+        if (hallinta.poista(tun, sal) == true) {
+            System.out.println("Tunnuksen poistaminen onnistui.");
+            hallinta.talleta();
+        } else {
+            System.out.println("Tunnuksen poistaminen ei onnistunut, tarkasta tunnuksen ja salasanan oikeinkirjoitus.");
         }
     }
 }
