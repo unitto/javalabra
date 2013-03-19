@@ -1,0 +1,15 @@
+Alkoholijuoma
+	Lisäys
+	Poisto
+Ostopaikka
+	Alko, marketti, baari	
+
+Käyttäjä
+Rekisteröityminen
+Toiminnallisuus
+	Top-5 juomat
+	Top-5 baarit
+	Kaikkien juomien listaus
+
+Käyttöliittymä (main)
+	Menu

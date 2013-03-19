@@ -2,5 +2,7 @@ Alkoholitietokantasovellus - tuntikirjanpito
 ------------------------
 
 12.03.13 - 2h
-Githubiin tutustiminen ja Deadline I-toteuttaminen
+Githubiin tutustuminen ja Deadline I-toteuttaminen
 ------
+13.03.12 - 12:00-14:00
+Aiheen kuvauksen tarkennusta ja luokkakaavioiden hahmottelua

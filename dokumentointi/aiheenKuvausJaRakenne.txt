@@ -4,7 +4,13 @@ Toteutetaan yksinkertainen alkoholitietokantasovellus, jonka avulla voidaan yllä
 
 Ideana käyttöliittymä, jossa käyttäjä voi rekisteröityä tai kirjautua sisään. Tämän jälkeen käyttäjällä on mahdollisuus lisätä tai poistaa alkoholijuomakokemuksia.
 
-Alkoholijuomilla olisi alustavasti näkyvillä normaalit tuotetiedot nimineen ja hintoineen, lyhyt kokeilu- ja makukuvaus sekä yleisarvosana. Ohjelman tulisi myös laskea paras kokemus/hintasuhde sekä alkoholiprosentti/hintasuhde.
+Alkoholijuomilla olisi alustavasti näkyvillä normaalit tuotetiedot nimineen ja hintoineen, lyhyt kokeilu- ja makukuvaus sekä yleisarvosana. Hintatiedot yhdistetään ostopaikkaan. Ostopaikka voi olla esim Alko tai jokin baari.
+
+Ohjelman tulisi myös laskea paras kokemus/hintasuhde sekä alkoholiprosentti/hintasuhde.
+
+**Mikäli aikaa ja osaamista riittää**
+ - Ohjelmaan voi syöttää illan aikana juotujen juomien tiedot lukumääriineen ja ohjelma laskee arvioidun alkoholimäärän ja rahankulun.
+
 --------------------------------------
 Käyttäjät: Juomisistaan kiinnostuneet henkilöt
 --------------------------------------
@@ -12,6 +18,7 @@ Kaikkien käyttäjien toiminnot:
 
 Rekisteröityminen
 	* Onnistuu mikäli käyttäjä ei löydy järjestelmästä
+	*Tallentaa tiedot tekstitiedostoon
 
 Käyttäjän kaikkien juomien listaus
 	* Onnistuu mikäli käyttäjällä on lisättyjä juomia
@@ -20,14 +27,26 @@ Käyttäjän TOP-5 juomien listaus
 	* Onnistuu mikäli käyttäjällä on lisättyjä juomia
 	* Näyttää 1-5 juomaa
 
+Käyttäjän TOP-5 baarien listaus
+	* Onnistuu mikäli käyttäjällä on lisättyjä juomiskertoja
+	* Näyttää 1-5 baaria
+
 Juomien lisäys
+	*Tallentaa tiedot tekstitiedostoon
 Juomien poisto
+	*Tallentaa tiedot tekstitiedostoon
 Juomien listaus
 
 Juomiskerran lisäys
 	* Onnistuu mikäli järjestelmään on lisätty juomia
+	*Tallentaa tiedot tekstitiedostoon
 Juomiskerran poisto
 	* Onnistuu mikäli järjestelmään on lisätty juomiskertoja
-
+	*Tallentaa tiedot tekstitiedostoon
 Paras arvosana/hintasuhde listaus
 Paras alkoholi/hintasuhde listaus
+
+**Mikäli aikaa ja osaamista riittää**
+Iltakulutus - juomien lisäys
+Iltakulutus - juomien poisto
+Iltakulutus - juomien lasku
