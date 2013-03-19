@@ -55,11 +55,15 @@ public class KayttajaHallinta {
 
     public void talleta() throws IOException {
         File tunnuksetSalasanoineen = new File(tiedosto);
-        FileWriter kirjoittaja = new FileWriter(tunnuksetSalasanoineen);
-        for (String s : this.kayttajatJaSalasanat.keySet()) {
-            kirjoittaja.write(s + " " + this.kayttajatJaSalasanat.get(s));
-            kirjoittaja.write("\n");
+        try (FileWriter kirjoittaja = new FileWriter(tunnuksetSalasanoineen)) {
+            for (String s : this.kayttajatJaSalasanat.keySet()) {
+                kirjoittaja.write(s + " " + this.kayttajatJaSalasanat.get(s));
+                kirjoittaja.write("\n");
+            }
         }
-        kirjoittaja.close();
+    }
+
+    public HashMap<String, String> getLista() {
+        return this.kayttajatJaSalasanat;
     }
 }
