@@ -27,13 +27,12 @@ public class KayttajaHallinta {
     }
 
     public boolean poista(String tunnus, String salasana) {
-        for (String s : this.kayttajatJaSalasanat.keySet()) {
-            if (s.equalsIgnoreCase(tunnus) && this.kayttajatJaSalasanat.get(s).equals(salasana)) {
-                this.kayttajatJaSalasanat.remove(tunnus);
-                return true;
-            }
+        if (Loytyyko(tunnus, salasana) == true) {
+            this.kayttajatJaSalasanat.remove(tunnus);
+            return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     public void lataa() throws IOException {
@@ -65,5 +64,14 @@ public class KayttajaHallinta {
 
     public HashMap<String, String> getLista() {
         return this.kayttajatJaSalasanat;
+    }
+
+    public boolean Loytyyko(String tunnus, String salasana) {
+        for (String s : this.kayttajatJaSalasanat.keySet()) {
+            if (s.equalsIgnoreCase(tunnus) && this.kayttajatJaSalasanat.get(s).equals(salasana)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

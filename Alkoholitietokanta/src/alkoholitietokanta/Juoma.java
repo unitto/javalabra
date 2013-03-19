@@ -5,11 +5,12 @@ public class Juoma {
 
     private String juomanNimi;
     private String juomanKuvaus;
-    private int juomanAlkoholiprosentti;
+    private double juomanAlkoholiprosentti;
 
-    public Juoma(String juomanNimi, String juomanKuvaus) {
+    public Juoma(String juomanNimi, String juomanKuvaus, double juomanAlkoholiProsentti ) {
         this.juomanNimi = juomanNimi;
         this.juomanKuvaus = juomanKuvaus;
+        this.juomanAlkoholiprosentti = juomanAlkoholiProsentti;
     }
 
     public String getNimi() {
@@ -18,6 +19,10 @@ public class Juoma {
 
     public String getJuomanKuvaus() {
         return this.juomanKuvaus;
+    }
+    
+    public double getJuomanProsentit(){
+        return this.juomanAlkoholiprosentti;
     }
     
     @Override

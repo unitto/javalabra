@@ -28,7 +28,15 @@ public class Main {
                 tunnuksenLisays(lukija, hallinta);
             }
             if (valinta == 2) {
-                System.out.println("Sisäänkirjautumista ei ole vielä lisätty\n");
+                System.out.println("Anna tunnus: ");
+                String tun = lukija.next();
+                System.out.print("Anna salasana: ");
+                String sal = lukija.next();
+                if (hallinta.Loytyyko(tun, sal) == true) {
+                    ToimintaLogiikka kirjauduttuSisaanToimintalogiikkaan = new ToimintaLogiikka(tun);
+                } else {
+                    System.out.println("Kirjautuminen epäonnistui, tarkasta tunnus ja salasana.");
+                }
             }
 
             if (valinta == 3) {

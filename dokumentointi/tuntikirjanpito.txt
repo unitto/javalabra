@@ -13,4 +13,5 @@ Muistelua miten hemmetiss‰ javaa kirjoitetaan ja miten java toimii. K‰ytt‰j‰n li
 Idea miten toteuttaa k‰ytt‰j‰kohtainen tietokanta t‰ysin hukassa, t‰t‰ mietitt‰v‰ paljon.
 
 19.03.12 - 19:00-22:00 (3h)
-Ensimm‰isten kymmenen junit-testien lis‰ily.
+Ensimm‰isten junit-testien lis‰ily.
+Projektin luokkien lis‰ily‰ ja hahmottelua miten t‰‰ roska tulee toimimaan :)
