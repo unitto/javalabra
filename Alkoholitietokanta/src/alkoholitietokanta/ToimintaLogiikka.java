@@ -11,7 +11,7 @@ public class ToimintaLogiikka {
     public ToimintaLogiikka(String tunnus) {
         this.tunnus=tunnus;
         //BaariHallinta hallinta = new baariHallinta("src/paikat/"+tunnus+".txt");
-        JuomaHallinta hallinta = new JuomaHallinta("src/juomat/"+tunnus+".txt");
+        //JuomaHallinta hallinta = new JuomaHallinta("src/juomat/"+tunnus+".txt");
         
         
         Scanner lukija = new Scanner(System.in);
