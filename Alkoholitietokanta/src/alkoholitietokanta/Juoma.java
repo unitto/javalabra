@@ -1,13 +1,12 @@
 package alkoholitietokanta;
 
-
 public class Juoma {
 
     private String juomanNimi;
     private String juomanKuvaus;
     private double juomanAlkoholiprosentti;
 
-    public Juoma(String juomanNimi, String juomanKuvaus, double juomanAlkoholiProsentti ) {
+    public Juoma(String juomanNimi, String juomanKuvaus, double juomanAlkoholiProsentti) {
         this.juomanNimi = juomanNimi;
         this.juomanKuvaus = juomanKuvaus;
         this.juomanAlkoholiprosentti = juomanAlkoholiProsentti;
@@ -20,13 +19,13 @@ public class Juoma {
     public String getJuomanKuvaus() {
         return this.juomanKuvaus;
     }
-    
-    public double getJuomanProsentit(){
+
+    public double getJuomanProsentit() {
         return this.juomanAlkoholiprosentti;
     }
-    
+
     @Override
-    public String toString(){
-     return this.juomanNimi+": "+this.juomanKuvaus;
+    public String toString() {
+        return this.juomanNimi + " | " + this.juomanKuvaus + " | " + this.juomanAlkoholiprosentti;
     }
 }

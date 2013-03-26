@@ -22,9 +22,12 @@ public class Baari {
         this.kuvaus = kuvaus;
     }
 
-    public void lisaaPvm(int pv, int kk, int v) {
-        this.paiva = pv;
-        this.kuukausi = kk;
-        this.vuosi = v;
+    public String getNimi() {
+        return this.nimi;
+    }
+
+    @Override
+    public String toString() {
+        return this.nimi + " | " + this.kuvaus;
     }
 }

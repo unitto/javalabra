@@ -3,6 +3,8 @@
  * and open the template in the editor.
  */
 
+import alkoholitietokanta.Juoma;
+import alkoholitietokanta.Juomalista;
 import alkoholitietokanta.KayttajaHallinta;
 import java.io.IOException;
 import java.util.HashMap;
@@ -78,6 +80,9 @@ public class AlkoholitietokantaTest {
             }
         }
         return false;
+    }
 
+    @Test
+    public void tyhja() {
     }
 }

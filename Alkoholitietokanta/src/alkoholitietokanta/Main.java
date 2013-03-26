@@ -48,7 +48,7 @@ public class Main {
                 valinta = 4;
             }
             if (valinta < 1 || valinta > 4) {
-                System.out.println("Ole hyvä ja valitse 1-3 väliltä.\n");
+                System.out.println("Ole hyvä ja valitse 1-4 väliltä.\n");
             }
         }
     }

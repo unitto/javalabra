@@ -37,6 +37,9 @@ public class KayttajaHallinta {
 
     public void lataa() throws IOException {
         File tunnuksetSalasanoineen = new File(tiedosto);
+        if (!tunnuksetSalasanoineen.exists()) {
+            tunnuksetSalasanoineen.createNewFile();
+        }
 
         try {
             this.lukija = new Scanner(tunnuksetSalasanoineen);
