@@ -38,7 +38,7 @@ public class Juomalista {
 
     public boolean poistaJuomalistastaJuoma(String juoma) {
         for (Juoma j : this.juomalista) {
-            if (j.getNimi().equalsIgnoreCase(juoma)) {
+            if (j.getName().equalsIgnoreCase(juoma)) {
                 this.juomalista.remove(j);
                 return true;
             }
@@ -49,7 +49,7 @@ public class Juomalista {
     public String tulostetaanKaikkiJuomatNimella() {
         StringBuilder sb = new StringBuilder();
         for (Juoma j : this.juomalista) {
-            sb.append(j.getNimi()).append("\n");
+            sb.append(j.getName()).append("\n");
         }
         return sb.toString();
     }
@@ -100,7 +100,7 @@ public class Juomalista {
 
     public boolean loytyykoJuomaListalta(String juoma) {
         for (Juoma j : this.juomalista) {
-            if (j.getNimi().equalsIgnoreCase(juoma)) {
+            if (j.getName().equalsIgnoreCase(juoma)) {
                 return true;
             }
         }

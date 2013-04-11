@@ -1,6 +1,6 @@
-Koskenkorva0,7l | 0,7l leka Koskenkorvaa           | 39.0
-Koff3 | Koffin normikolmonen           | 4.7
-Halpasiideri1 | Lidlistä saatava perhanan halpa ja paha sidukka           | 4.4
-FostersRadler | Sitruunaolut           | 2.0
-helvetinisobisse | varmasti tulee k�nni          | 100.0
-SpringAqua | Tommonen kallis l�hdevesi         | 0.0
+Koskenkorva0,7l | 0,7l leka Koskenkorvaa            | 39.0
+Koff3 | Koffin normikolmonen            | 4.7
+Halpasiideri1 | Lidlistä saatava perhanan halpa ja paha sidukka            | 4.4
+FostersRadler | Sitruunaolut            | 2.0
+helvetinisobisse | varmasti tulee k�nni           | 100.0
+erkin drinksu | kolmee helvetin pahaa virosta tuotua viinaa sekaisin | 50.0

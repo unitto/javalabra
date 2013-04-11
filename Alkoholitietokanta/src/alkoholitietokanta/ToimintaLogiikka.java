@@ -3,17 +3,22 @@
  */
 package alkoholitietokanta;
 
+import com.avaje.ebean.EbeanServer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.Scanner;
 
 public class ToimintaLogiikka {
     
     private String tunnus;
-    
-    public ToimintaLogiikka(String tunnus) throws IOException {
-        this.tunnus = tunnus;
+    private Kayttaja kirjautunutKayttaja;
+    private EbeanServer serveri;
+    public ToimintaLogiikka(Kayttaja kayttaja, EbeanServer serveri) throws IOException {
+        
+        this.tunnus = "kakkanapa";
+        this.serveri = serveri;
         Juomalista kaikkiJuomat = new Juomalista("src/juomat.txt");
         Baarilista kaikkiBaarit = new Baarilista("src/baarit.txt");
         //BaariHallinta hallinta = new baariHallinta("src/paikat/"+tunnus+".txt");
@@ -35,7 +40,7 @@ public class ToimintaLogiikka {
             System.out.println("2. Poista juoma");
             System.out.println("3. Listaa juomat");
             System.out.println("4. Lisää baari");
-            System.out.println("5. Poisto baari");
+            System.out.println("5. Poista baari");
             System.out.println("6. Top 5 juoduimmat");
             System.out.println("7. Top 5 paras alkoholi/hinta ");
             System.out.println("8. Top 5 paras kokemus/hinta");
@@ -70,7 +75,11 @@ public class ToimintaLogiikka {
     
     public void tulostetaanJuomat(Juomalista kaikkiJuomat) {
         System.out.println("---------------------");
-        System.out.print(kaikkiJuomat.tulostetaanKaikkiTiedot());
+        List<Juoma> tulostettavatJuomat = serveri.find(Juoma.class).findList();
+        for (Juoma j : tulostettavatJuomat)
+        {
+            System.out.println(j);
+        }
         System.out.println("---------------------");
         Scanner odotetaanEnteria = new Scanner(System.in); 
         System.out.println("Paina enteriä jatkaaksesi.");
@@ -85,9 +94,11 @@ public class ToimintaLogiikka {
         System.out.println("Anna juoman alkoholiprosentit (muotoesimerkki 4.7)");
         Double juomanProsentit = lukija.nextDouble();
         Juoma lisattavaJuoma = new Juoma(juomanNimi, juomanKuvaus, juomanProsentit);
+        lisattavaJuoma.setLisaaja(this.kirjautunutKayttaja);
+        
+        
         if (kaikkiJuomat.loytyykoJuomaListalta(juomanNimi) == false) {
-            kaikkiJuomat.lisaaJuomalistaanJuoma(lisattavaJuoma);
-            kaikkiJuomat.talleta();
+            this.serveri.save(lisattavaJuoma);
         } else {
             System.out.println("Juoman lisäys epäonnistui");
         }
