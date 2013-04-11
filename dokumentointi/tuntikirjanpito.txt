@@ -4,20 +4,27 @@ Alkoholitietokantasovellus - tuntikirjanpito
 12.03.13 - 2h
 Githubiin tutustuminen ja Deadline I-toteuttaminen
 ------
-13.03.12 - 12:00-14:00 (2h)
+13.03.13 - 12:00-14:00 (2h)
 Aiheen kuvauksen tarkennusta ja luokkakaavioiden hahmottelua
 ------
-19.03.12 - 11-13:20 (~2,5h)
+19.03.13 - 11-13:20 (~2,5h)
 Muistelua miten hemmetiss‰ javaa kirjoitetaan ja miten java toimii. K‰ytt‰j‰n lis‰ys & poisto sek‰ ensimm‰isen menun teko. Illalla Korean tuntien j‰lkeen koitan tehd‰ JUnit testej‰ ja lis‰‰ perustoiminnallisuutta.
 
 Idea miten toteuttaa k‰ytt‰j‰kohtainen tietokanta t‰ysin hukassa, t‰t‰ mietitt‰v‰ paljon.
 
-19.03.12 - 19:00-22:00 (3h)
+19.03.13 - 19:00-22:00 (3h)
 Ensimm‰isten junit-testien lis‰ily.
 Projektin luokkien lis‰ily‰ ja hahmottelua miten t‰‰ roska tulee toimimaan :)
 ------
-26.03.12 - 12:00-16:00 (4h)
+26.03.13 - 12:00-16:00 (4h)
 Lis‰toiminnallisuuden koodailu
 
-26.03.12 - 18:00-21:30 (3,5h)
+26.03.13 - 18:00-21:30 (3,5h)
 Lis‰‰ koodia, jUnit-testej‰ ja uusi luokkakaavio
+------
+10.04.13 - 17:30 - 22:00 (4,5h)
+Tappelua ja ahdinkoa Ebeanin kanssa. Ei l‰hde toimimaan.
+-------
+11.04.13 - 10:00 - ???
+Lis‰‰ tappelua ja ahdinkoa Ebeanin kanssa.
+14:00 VOITTO. ongelma oli sqllitess‰ itsess‰‰n, ebeanin luoma autoincrement ei toimi. puukotettu .jar tiedostoa k‰sin, nyt toimaa paremmin.

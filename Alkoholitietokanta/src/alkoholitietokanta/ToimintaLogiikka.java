@@ -19,6 +19,7 @@ public class ToimintaLogiikka {
         
         this.tunnus = "kakkanapa";
         this.serveri = serveri;
+        this.kirjautunutKayttaja=kayttaja;
         Juomalista kaikkiJuomat = new Juomalista("src/juomat.txt");
         Baarilista kaikkiBaarit = new Baarilista("src/baarit.txt");
         //BaariHallinta hallinta = new baariHallinta("src/paikat/"+tunnus+".txt");
@@ -94,7 +95,7 @@ public class ToimintaLogiikka {
         System.out.println("Anna juoman alkoholiprosentit (muotoesimerkki 4.7)");
         Double juomanProsentit = lukija.nextDouble();
         Juoma lisattavaJuoma = new Juoma(juomanNimi, juomanKuvaus, juomanProsentit);
-        lisattavaJuoma.setLisaaja(this.kirjautunutKayttaja);
+        //lisattavaJuoma.setLisaaja(this.kirjautunutKayttaja);
         
         
         if (kaikkiJuomat.loytyykoJuomaListalta(juomanNimi) == false) {

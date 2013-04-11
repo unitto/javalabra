@@ -2,18 +2,15 @@ package alkoholitietokanta;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Juoma {
 
-    @Id
-    private Integer id;
     private String name;
     private String juomanKuvaus;
     private double juomanAlkoholiprosentti;
-    @ManyToOne
-    private Kayttaja lisaaja;
+    @Id
+    private Integer id;
 
     public Juoma() {
     }
@@ -50,18 +47,6 @@ public class Juoma {
 
     public void setJuomanAlkoholiprosentti(double juomanAlkoholiprosentti) {
         this.juomanAlkoholiprosentti = juomanAlkoholiprosentti;
-    }
-
-    public void setLisaaja(Kayttaja lisaaja) {
-        this.lisaaja = lisaaja;
-    }
-
-    public Kayttaja getLisaaja() {
-        return lisaaja;
-    }
-
-    public void setjuomanAlkoholiprosentti(double juomanProsentit) {
-        this.juomanAlkoholiprosentti = juomanProsentit;
     }
 
     public double getJuomanAlkoholiprosentti() {
