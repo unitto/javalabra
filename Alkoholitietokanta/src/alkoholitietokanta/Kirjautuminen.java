@@ -5,6 +5,25 @@ import java.io.IOException;
 import java.util.Scanner;
 import javax.persistence.OptimisticLockException;
 
+/**
+ *
+ * @author katu
+ *
+ * Kirjautuminen-luokka avaa ensimmäisen menu-ruudun mainilla tuodolla
+ * EbeanServerillä sekä boolean-tiedolla, jolla ohjelmalle kerrotaan onko
+ * käytössä tyhjä & uusi tietokanta. Mikäli boolean on true, niin
+ * alustetaanTietokanta() luo tietokantaan muutaman entryn.
+ *
+ * Mikäli boolean on false, niin tietokantaan ei kosketa ja sen käyttöä
+ * jatketaan normaalistin.
+ *
+ * Kirjautumisruudussa voidaan lisätä ja poistaa käyttäjiä. Käyttäjät
+ * tallentuvat tietokantaan. Lisäksi ruudussa voi myös kirjautua
+ * ToimintaLogiikka-luokkaan, sekä poistua ohjelmasta.
+ *
+ *
+ *
+ */
 public class Kirjautuminen {
 
     private EbeanServer server;
@@ -16,7 +35,7 @@ public class Kirjautuminen {
     public void ohjelmanAloitus(boolean uusiTietokanta) throws IOException {
         Scanner lukija = new Scanner(System.in);
         KayttajaHallinta hallinta = new KayttajaHallinta(server);
-        if (uusiTietokanta==true) {
+        if (uusiTietokanta == true) {
             alustetaanTietokanta();
         }
 

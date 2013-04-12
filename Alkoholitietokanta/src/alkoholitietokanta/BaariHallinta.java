@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package alkoholitietokanta;
 
 import java.io.File;
@@ -12,7 +8,12 @@ import java.util.Scanner;
 
 /**
  *
- * @author unit
+ * @author katu
+ *
+ * BaariHallinta-luokka suorittaa baarien ylläpidon tietokannassa. Luokasta
+ * löytyy lisäämisen, lyötämisen ja poistamiseen liittyvät toiminnallisuudet.
+ *
+ *
  */
 class BaariHallinta {
 }

@@ -3,6 +3,16 @@ package alkoholitietokanta;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ *
+ * @author katu
+ *
+ * Juoma-luokka sisältää juoma-olion getterit ja setterit. Integer id-toimii
+ * Juoma-luokan pääavaimena, joka on juokseva luku. Kahta samaa juomaa ei saa
+ * samalla avaimella olla.
+ *
+ *
+ */
 @Entity
 public class Juoma {
 

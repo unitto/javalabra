@@ -11,9 +11,13 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- *
- * @author unit
- */
+ * 
+ * @author katu
+ * 
+ * JuomaHallinta-luokka suorittaa juomien ylläpidon tietokannassa. 
+ * Luokasta löytyy lisäämisen, lyötämisen ja poistamiseen liittyvät toiminnallisuudet.
+ * 
+ **/
 public class JuomaHallinta {
 
     HashMap<String, Integer> juontiLista = new HashMap<>();

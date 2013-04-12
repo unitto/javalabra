@@ -4,7 +4,7 @@
  */
 
 import alkoholitietokanta.Juoma;
-import alkoholitietokanta.Juomalista;
+import alkoholitietokanta.XEiKaytossaJuomalista;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  */
 public class JuomaTestit {
 
-    Juomalista juomaLista = new Juomalista("juomat");
+    XEiKaytossaJuomalista juomaLista = new XEiKaytossaJuomalista("juomat");
 
     public JuomaTestit() {
     }
@@ -48,26 +48,26 @@ public class JuomaTestit {
 
     @Test
     public void toimiikoUseanJuomanLisays() {
-        Juomalista uusiLista = palautaValmisJuomalista();
+        XEiKaytossaJuomalista uusiLista = palautaValmisJuomalista();
         assertEquals("Halpasiideri1\n" + "Koff3\n" + "Crowmoor\n", uusiLista.tulostetaanKaikkiJuomatNimella());
     }
 
     @Test
     public void toimiikoYhdenJuomanPoisto() {
-        Juomalista uusiLista = palautaValmisJuomalista();
+        XEiKaytossaJuomalista uusiLista = palautaValmisJuomalista();
         uusiLista.poistaJuomalistastaJuoma("Halpasiideri1");
         assertEquals("Koff3\n" + "Crowmoor\n", uusiLista.tulostetaanKaikkiJuomatNimella());
     }
 
     @Test
     public void toimiikoUseanJuomanPoisto() {
-        Juomalista uusiLista = palautaValmisJuomalista();
+        XEiKaytossaJuomalista uusiLista = palautaValmisJuomalista();
         uusiLista.poistaJuomalistastaJuoma("Halpasiideri1");
         uusiLista.poistaJuomalistastaJuoma("Crowmoor");
         assertEquals("Koff3\n", uusiLista.tulostetaanKaikkiJuomatNimella());
     }
 
-    public Juomalista palautaValmisJuomalista() {
+    public XEiKaytossaJuomalista palautaValmisJuomalista() {
         Juoma siideri1 = new Juoma("Halpasiideri1", "Lidlistä saatava perhanan halpa ja paha sidukka", 4.4);
         Juoma olut1 = new Juoma("Koff3", "Koffin normikolmonen", 4.7);
         Juoma siideri2 = new Juoma("Crowmoor", "Kuiva omenasiideri", 4.7);

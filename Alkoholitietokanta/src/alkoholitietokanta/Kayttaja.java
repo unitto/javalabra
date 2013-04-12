@@ -3,6 +3,17 @@ package alkoholitietokanta;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ *
+ * @author katu
+ *
+ * Kayttaja-luokka sisältää käyttäjä-olion getterit ja setterit. String tunnus
+ * toimii käyttäjän pääavaimena. Kahta samaa tunnusta järjestelmässä ei voi
+ * olla.
+ *
+ *
+ */
+
 @Entity
 public class Kayttaja {
 

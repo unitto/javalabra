@@ -7,6 +7,15 @@ package alkoholitietokanta;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ *
+ * @author katu
+ *
+ * Testiluokka, jolla debugaillaan ja testaillaan juttuja. Ei kovinkaan
+ * merkityksellinen.
+ *
+ *
+ */
 public class mainTesteri {
 
     public static void main(String[] args) throws IOException {
@@ -20,7 +29,7 @@ public class mainTesteri {
         String baarinKuvaus = lukija.nextLine();
 
         Baari bb = new Baari(baarinNimi, baarinKuvaus);
-        Baarilista bLista = new Baarilista("src/baarit.txt");
+        XEiKaytossaBaarilista bLista = new XEiKaytossaBaarilista("src/baarit.txt");
         bLista.lisaaBaari(bb);
         bLista.talleta();
 

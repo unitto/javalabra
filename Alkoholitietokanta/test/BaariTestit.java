@@ -4,9 +4,9 @@
  */
 
 import alkoholitietokanta.Baari;
-import alkoholitietokanta.Baarilista;
+import alkoholitietokanta.XEiKaytossaBaarilista;
 import alkoholitietokanta.Juoma;
-import alkoholitietokanta.Juomalista;
+import alkoholitietokanta.XEiKaytossaJuomalista;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
  */
 public class BaariTestit {
 
-    Baarilista bLista = new Baarilista("tiedosto");
+    XEiKaytossaBaarilista bLista = new XEiKaytossaBaarilista("tiedosto");
 
     public BaariTestit() {
     }
@@ -50,27 +50,27 @@ public class BaariTestit {
 
     @Test
     public void toimiikoUseanBaarinLisays() {
-        Baarilista uusiLista = palautaValmisBaarilista();
+        XEiKaytossaBaarilista uusiLista = palautaValmisBaarilista();
         assertEquals("Kotibaari\n" + "Satulinna\n" + "Pinokkio\n", uusiLista.tulostetaanKaikkiBaaritNimella());
     }
 
     @Test
     public void toimiikoYhdenBaarinPoisto() {
-        Baarilista uusiLista = palautaValmisBaarilista();
+        XEiKaytossaBaarilista uusiLista = palautaValmisBaarilista();
         uusiLista.poistaBaari("Kotibaari");
         assertEquals("Satulinna\n" + "Pinokkio\n", uusiLista.tulostetaanKaikkiBaaritNimella());
     }
 
     @Test
     public void toimiikoUseanBaarinPoisto() {
-        Baarilista uusiLista = palautaValmisBaarilista();
+        XEiKaytossaBaarilista uusiLista = palautaValmisBaarilista();
         uusiLista.poistaBaari("Kotibaari");
         uusiLista.poistaBaari("Pinokkio");
         assertEquals("Satulinna\n", uusiLista.tulostetaanKaikkiBaaritNimella());
 
     }
 
-    public Baarilista palautaValmisBaarilista() {
+    public XEiKaytossaBaarilista palautaValmisBaarilista() {
         Baari b1 = new Baari("Kotibaari", "Kotijuoppola");
         Baari b2 = new Baari("Satulinna", "Mene vain luotiliivin kera");
         Baari b3 = new Baari("Pinokkio", "Ihme mesta ja vain yksi bilispöytä");

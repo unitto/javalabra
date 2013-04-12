@@ -8,7 +8,14 @@ import com.avaje.ebean.config.DataSourceConfig;
 import com.avaje.ebean.config.ServerConfig;
 import com.avaje.ebean.config.dbplatform.SQLitePlatform;
 import java.io.IOException;
-
+/**
+ * 
+ * @author katu
+ * 
+ * Tämä luokka alustaa EbeanServerin oikeilla asetuksilla sekä mainin kautta käynnistää Kirjautuminen-luokan, jossa sijaitsee myös ensimmäinen menu.
+ * Tässä luotua EbeanServer serveriä siirretään myös Kirjautuminen-luokkaan ja sieltä myöhemmin avattavaan ToimintaLogiikka-luokkaan
+ * 
+ **/
 
 public class Main {
     

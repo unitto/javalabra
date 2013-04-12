@@ -1,17 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package alkoholitietokanta;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- *
- * Täältä löytyy yksittäisten "baarien" tietoja. Eli baari voi olla
- * illanviettopaikka tai vaikkapa kauppa.
- */
+ * 
+ * @author katu
+ * 
+ * Baari-luokka sisältää Baari-olion getterit ja setterit. 
+ * String nimi toimii baarin pääavaimena. Kahta samaa baarin nimeä järjestelmässä ei voi olla.
+ * 
+ **/
 @Entity
 public class Baari {
 
@@ -39,9 +38,6 @@ public class Baari {
     public void setKuvaus(String baarinKuvaus) {
         this.kuvaus = baarinKuvaus;
     }
-    
-    
-    
     
     @Override
     public String toString() {
