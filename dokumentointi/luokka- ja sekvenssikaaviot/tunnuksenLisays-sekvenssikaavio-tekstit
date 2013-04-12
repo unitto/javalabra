@@ -1,0 +1,19 @@
+title tunnuksenLisays
+
+note left of kayttaja: Kayttaja on valinnut menusta "Lisaa kayttaja" valinnan.
+
+kirjautuminen.class->kayttaja: "Anna tunnus"-kysely
+kayttaja->kirjautuminen.class: input tunnus (String tun)
+
+kirjautuminen.class->kayttaja: "Anna salasana"-kysely
+kayttaja->kirjautuminen.class: input salasana (String sal)
+
+kirjautuminen.class->+hallinta(KayttajaHallinta): hallinta.Loytyyko(tun, sal, EbeanServer)
+hallinta(KayttajaHallinta)-->-kirjautuminen.class: palautetaan true jos tunnus loytyy ja salasana on oikein, false jos ei
+
+alt Salasana ja teksti olivat oikein
+    kirjautuminen.class->toimintaLogiikka1(ToimintaLogiikka): ToimintaLogiikka toimintaLogiikka1 = new ToimintaLogiikka(hallinta.HaeKayttaja(tun, sal), server);
+else Tunnus tai salasana oli vaarin
+    hallinta(KayttajaHallinta)->kayttaja: "Kirjautuminen epaonnistui, tarkasta tunnus ja salasana" teksti palautuu
+end
+

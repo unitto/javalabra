@@ -33,5 +33,5 @@ voittoa ei kuitenkaan tullut, homma ei vain toiminut.
 -------
 12.04.13 - 13:00 - 14:00 (1h)
 Vaakapallon kanssa katsottiin miksi edelleen tuli erroreita --> JDK-polku oli v‰‰r‰.
-Kirjoitettu kaikkiin luokkiin JDOCS:it sek‰ tehty sekvenssikaavio tunnuksenLisays-metodille.
+Kirjoitettu kaikkiin luokkiin JDOCS:it sek‰ tehty sekvenssikaavio tunnuksenLisays-metodille.	
 
