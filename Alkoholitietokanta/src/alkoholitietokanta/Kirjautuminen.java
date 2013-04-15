@@ -25,23 +25,23 @@ import javax.persistence.OptimisticLockException;
  *
  */
 public class Kirjautuminen {
-
+    
     private EbeanServer server;
-
+    
     public Kirjautuminen(EbeanServer serveri) {
         this.server = serveri;
     }
-
+    
     public void ohjelmanAloitus(boolean uusiTietokanta) throws IOException, Exception {
         Scanner lukija = new Scanner(System.in);
         KayttajaHallinta hallinta = new KayttajaHallinta(server);
         if (uusiTietokanta == true) {
             alustetaanTietokanta();
         }
-
+        
         System.out.println("Tervetuloa Alkoholitietokantaan! \nJatka valitsemalla alla olevasta menusta. ");
         int valinta = 0;
-
+        
         while (valinta != 4) {
             System.out.println("---------------------");
             System.out.println("1. Lisää käyttäjä");
@@ -51,7 +51,7 @@ public class Kirjautuminen {
             System.out.println("---------------------");
             System.out.print("Anna valintanumero: ");
             valinta = lukija.nextInt();
-
+            
             if (valinta == 1) {
                 tunnuksenLisays(lukija, hallinta);
             }
@@ -78,7 +78,7 @@ public class Kirjautuminen {
             }
         }
     }
-
+    
     private static void tunnuksenLisays(Scanner lukija, KayttajaHallinta hallinta) throws IOException {
         System.out.print("Anna tunnus: ");
         String tun = lukija.next();
@@ -90,7 +90,7 @@ public class Kirjautuminen {
             System.out.println("Tunnuksen lisääminen ei onnistunut, kokeile toista tunnusta.");
         }
     }
-
+    
     private static void tunnuksenPoisto(Scanner lukija, KayttajaHallinta hallinta) throws IOException {
         System.out.print("Anna poistettava tunnus: ");
         String tun = lukija.next();
@@ -102,16 +102,25 @@ public class Kirjautuminen {
             System.out.println("Tunnuksen poistaminen ei onnistunut, tarkasta tunnuksen ja salasanan oikeinkirjoitus.");
         }
     }
-
-    private void alustetaanTietokanta() throws OptimisticLockException {
+    
+    private void alustetaanTietokanta() throws OptimisticLockException, Exception {
         Kayttaja k1 = new Kayttaja("asd", "222");
         Juoma j1 = new Juoma("Black Rat", "Natural dry apple cider", 4.7, "Matti");
+        Juoma j2 = new Juoma("Karhu 3 tölkkissä", "Perusbisse", 4.7, "Hattiwatti");
         Baari b1 = new Baari("William K", "Mukava oluthuone");
+        Baari b2 = new Baari("Koti", "Oma koti kullan kallis");
         BaariReissu br1 = new BaariReissu();
+        br1.setKuvaus("Kotona alottelin juomaan.");
+        BaariReissu br2 = new BaariReissu();
+        br2.setKuvaus("Matka jatkuin William K:hon, jossa tuli vedettyä naamat ja kaatuiltua kotiin.");
         server.save(k1);
         server.save(j1);
         server.save(b1);
+        br1.lisaaJuoma(j1, 3);
+        br2.lisaaJuoma(j1, 5);
+        br2.lisaaJuoma(j2, 10);
+        server.save(br1);
+        server.save(br2);
         
-
     }
 }

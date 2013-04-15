@@ -5,7 +5,8 @@ create table baari (
 
 create table baari_reissu (
   id                        integer primary key AUTOINCREMENT,
-  baarin_nimi               varchar(255))
+  baarin_nimi               varchar(255),
+  kuvaus                    varchar(255))
 ;
 
 create table juoma (

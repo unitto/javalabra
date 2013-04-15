@@ -27,9 +27,18 @@ public class BaariReissu {
     @Id
     private Integer id;
     private String baarinNimi;
+    private String kuvaus;
     private HashMap<Juoma, Integer> juodutJuomatLista;
 
     public BaariReissu() {
+    }
+
+    public String getKuvaus() {
+        return kuvaus;
+    }
+
+    public void setKuvaus(String kuvaus) {
+        this.kuvaus = kuvaus;
     }
 
     public Integer getId() {
@@ -78,9 +87,8 @@ public class BaariReissu {
     }
 
     public void tulostaJuomat() {
-        for (Juoma j: this.juodutJuomatLista.keySet())
-        {
-            System.out.println("Juoma: "+ j.getName() + "| Maara: " + this.juodutJuomatLista.get(j));
+        for (Juoma j : this.juodutJuomatLista.keySet()) {
+            System.out.println("Juoma: " + j.getName() + "| Maara: " + this.juodutJuomatLista.get(j));
         }
     }
 }

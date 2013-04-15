@@ -21,7 +21,7 @@ import java.io.IOException;
  */
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, Exception {
         boolean tuhotaanJaLuodaanTaulut = true;
         EbeanServer server = initializeDatabase(tuhotaanJaLuodaanTaulut);
         new Kirjautuminen(server).ohjelmanAloitus(tuhotaanJaLuodaanTaulut);

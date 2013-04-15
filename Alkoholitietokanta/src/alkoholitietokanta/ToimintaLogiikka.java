@@ -58,8 +58,14 @@ public class ToimintaLogiikka {
                 System.out.println("1: Lisää baarireissu \n2: Lisää baarireissu ryyppyreissuun");
                 int valintaSisalla = lukija.nextInt();
                 if (valintaSisalla == 1) {
-                    LisataanBaariReissu(multiLukija, baariHallinta, juomaHallinta, lukija);
+                    LisataanBaariReissu(multiLukija, baariHallinta, juomaHallinta, lukija, serveri);
                 } else if (valintaSisalla == 2) {
+                    RyyppyReissu rReissu = new RyyppyReissu();
+                    System.out.println("Luodaan uusi Ryyppyreissu. Valitse alla olevasta listasta valmiita baarikeikkoja: ");
+                    tulostetaanBaariReissut();
+
+
+
                 } else {
                     System.out.println("Huono valinta :(");
                 }
@@ -73,6 +79,22 @@ public class ToimintaLogiikka {
 
             }
         }
+    }
+
+    public void tulostaMenu() {
+        System.out.println("---------------------");
+        System.out.println("Olet kirjautunut sisään käyttäjänä: " + this.tunnus);
+        System.out.println("---------------------");
+        System.out.println("1. Lisää juoma / baari");
+        System.out.println("2. Poista juoma / baari");
+        System.out.println("3. Listaa juomat / baarit");
+        System.out.println("4. Lisää baarireissu / ryyppyreissu");
+        System.out.println("6. Top 5 juoduimmat");
+        System.out.println("7. Top 5 paras alkoholi/hinta ");
+        System.out.println("8. Top 5 paras kokemus/hinta");
+        System.out.println("9. Palaa kirjautumisvalikkoon");
+        System.out.println("---------------------");
+        System.out.println("Anna valintanumero: ");
     }
 
     public void tulostetaanJuomat() {
@@ -92,6 +114,18 @@ public class ToimintaLogiikka {
         List<Baari> tulostettavatBaarit = serveri.find(Baari.class).findList();
         for (Baari b : tulostettavatBaarit) {
             System.out.println(b);
+        }
+        System.out.println("---------------------");
+        Scanner odotetaanEnteria = new Scanner(System.in);
+        System.out.println("Paina enteriä jatkaaksesi.");
+        odotetaanEnteria.nextLine();
+    }
+
+    public void tulostetaanBaariReissut() {
+        System.out.println("---------------------");
+        List<BaariReissu> tulostettavatBaariReissut = serveri.find(BaariReissu.class).findList();
+        for (BaariReissu b : tulostettavatBaariReissut) {
+            b.tulostaJuomat();
         }
         System.out.println("---------------------");
         Scanner odotetaanEnteria = new Scanner(System.in);
@@ -187,29 +221,17 @@ public class ToimintaLogiikka {
         }
     }
 
-    public void tulostaMenu() {
-        System.out.println("---------------------");
-        System.out.println("Olet kirjautunut sisään käyttäjänä: " + this.tunnus);
-        System.out.println("---------------------");
-        System.out.println("1. Lisää juoma / baari");
-        System.out.println("2. Poista juoma / baari");
-        System.out.println("3. Listaa juomat / baarit");
-        System.out.println("4. Lisää baarireissu / ryyppyreissu");
-        System.out.println("6. Top 5 juoduimmat");
-        System.out.println("7. Top 5 paras alkoholi/hinta ");
-        System.out.println("8. Top 5 paras kokemus/hinta");
-        System.out.println("9. Palaa kirjautumisvalikkoon");
-        System.out.println("---------------------");
-        System.out.println("Anna valintanumero: ");
-    }
-
-    public void LisataanBaariReissu(BufferedReader multiLukija, BaariHallinta baariHallinta, JuomaHallinta juomaHallinta, Scanner lukija) throws Exception, IOException {
+    public void LisataanBaariReissu(BufferedReader multiLukija, BaariHallinta baariHallinta, JuomaHallinta juomaHallinta, Scanner lukija, EbeanServer server) throws Exception, IOException {
         BaariReissu reissu = new BaariReissu();
         System.out.println("Anna baarin / paikan nimi, missä olit juomassa:");
         tulostetaanBaarit();
         System.out.print("Syöte : ");
         String paikanNimi = multiLukija.readLine();
         if (baariHallinta.Loytyyko(paikanNimi)) {
+            System.out.println("Annan reissun kuvaus:");
+            System.out.print("Syöte : ");
+            String kuvaus = multiLukija.readLine();
+            reissu.setKuvaus(kuvaus);
             while (true) {
                 System.out.println("\nLisätään paikkaan " + paikanNimi + " juomia. Alla lista juomista. Anna juoman nimi tai anna tyhja lopettaaksesi:\n");
                 tulostetaanJuomat();
@@ -221,11 +243,11 @@ public class ToimintaLogiikka {
                     int maara = lukija.nextInt();
                     reissu.lisaaJuoma(juomaHallinta.LoytyykoJuomaNimellaPalautetaanJuoma(lisattavaJuoma), maara);
                     System.out.println("Juoma lisätty baarireissuun.");
-
                 } else if (lisattavaJuoma.equals("")) {
+                    this.serveri.save(reissu);
                     break;
                 } else {
-                    System.out.println("Kirjoita oikea nimi tai paina enteriä.");
+                    System.out.println("*** Kirjoita syöte tai paina enteriä. ***");
                 }
             }
         }
