@@ -98,8 +98,8 @@ public class XEiKaytossaJuomalista {
                 juomanNimi = osat[0].replaceAll("\\s", "");
                 juomanKuvaus = osat[1].replaceAll("^[\\s\\t]+", "");
                 juomanProsentit = Double.parseDouble(osat[2].replaceAll("\\s", ""));
-                Juoma luettuJuoma = new Juoma(juomanNimi, juomanKuvaus, juomanProsentit);
-                this.juomalista.add(luettuJuoma);
+                //Juoma luettuJuoma = new Juoma(juomanNimi, juomanKuvaus, juomanProsentit);
+               // this.juomalista.add(luettuJuoma);
             } catch (Exception e) {
                 System.out.println("Tiedostoa ei löydy.");
             }

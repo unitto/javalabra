@@ -43,6 +43,7 @@ public class Main {
 
         config.addClass(Kayttaja.class);
         config.addClass(Juoma.class);
+        config.addClass(Baari.class);
 
 
         if (tuhotaanJaLuodaanTaulut) {

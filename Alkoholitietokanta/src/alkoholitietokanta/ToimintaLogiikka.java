@@ -31,14 +31,8 @@ public class ToimintaLogiikka {
         this.tunnus = "kakkanapa";
         this.serveri = serveri;
         this.kirjautunutKayttaja = kayttaja;
-        XEiKaytossaJuomalista kaikkiJuomat = new XEiKaytossaJuomalista("src/juomat.txt");
-        XEiKaytossaBaarilista kaikkiBaarit = new XEiKaytossaBaarilista("src/baarit.txt");
-        //BaariHallinta hallinta = new baariHallinta("src/paikat/"+tunnus+".txt");
-        JuomaHallinta juomaHallinta = new JuomaHallinta("src/juomat/" + tunnus + ".txt");
-
-        kaikkiJuomat.lataa();
-        kaikkiBaarit.lataa();
-        juomaHallinta.lataa();
+        BaariHallinta baariHallinta = new BaariHallinta(serveri);
+        JuomaHallinta juomaHallinta = new JuomaHallinta(serveri);
 
         Scanner lukija = new Scanner(System.in);
         BufferedReader multiLukija = new BufferedReader(new InputStreamReader(System.in));
@@ -48,11 +42,9 @@ public class ToimintaLogiikka {
             System.out.println("---------------------");
             System.out.println("Olet kirjautunut sisään käyttäjänä: " + this.tunnus);
             System.out.println("---------------------");
-            System.out.println("1. Lisää juoma");
-            System.out.println("2. Poista juoma");
-            System.out.println("3. Listaa juomat");
-            System.out.println("4. Lisää baari");
-            System.out.println("5. Poista baari");
+            System.out.println("1. Lisäykset");
+            System.out.println("2. Poistot");
+            System.out.println("3. Listaukset");
             System.out.println("6. Top 5 juoduimmat");
             System.out.println("7. Top 5 paras alkoholi/hinta ");
             System.out.println("8. Top 5 paras kokemus/hinta");
@@ -62,22 +54,47 @@ public class ToimintaLogiikka {
             valinta = lukija.nextInt();
 
             if (valinta == 1) {
-                lisataanJuoma(multiLukija, lukija, kaikkiJuomat);
+                System.out.println("1: Lisää Juoma\n2: Lisää baari");
+                int valintaSisalla = lukija.nextInt();
+                if (valintaSisalla == 1) {
+                    lisataanJuoma(multiLukija, lukija, juomaHallinta);
+                } else if (valintaSisalla == 2) {
+                    baarinLisays(multiLukija, baariHallinta);
+                } else {
+                    System.out.println("Huono valinta :(");
+                }
+
             }
             if (valinta == 2) {
-                poistetaanJuoma(multiLukija, lukija, kaikkiJuomat);
+                System.out.println("1: Poista Juoma\n2: Poista baari");
+                int valintaSisalla = lukija.nextInt();
+                if (valintaSisalla == 1) {
+                    poistetaanJuoma(multiLukija, lukija, juomaHallinta);
+                } else if (valintaSisalla == 2) {
+                    poistetaanBaari(multiLukija, lukija, baariHallinta);
+                } else {
+                    System.out.println("Huono valinta :(");
+                }
             }
 
             if (valinta == 3) {
-                tulostetaanJuomat(kaikkiJuomat);
+                System.out.println("1: Listaa juomat\n2: Listaa baarit");
+                int valintaSisalla = lukija.nextInt();
+                if (valintaSisalla == 1) {
+                    tulostetaanJuomat();
+                } else if (valintaSisalla == 2) {
+                    tulostetaanBaarit();
+                } else {
+                    System.out.println("Huono valinta :(");
+                }
             }
 
             if (valinta == 4) {
-                baarinLisays(multiLukija, kaikkiBaarit);
+                //baarinLisays(multiLukija, kaikkiBaarit);
             }
 
             if (valinta == 5) {
-                baarinPoisto(multiLukija, kaikkiBaarit);
+                //baarinPoisto(multiLukija, kaikkiBaarit);
             }
             if (valinta < 1 || valinta > 9) {
                 System.out.println("Ole hyvä ja valitse 1-9 väliltä.\n");
@@ -85,7 +102,7 @@ public class ToimintaLogiikka {
         }
     }
 
-    public void tulostetaanJuomat(XEiKaytossaJuomalista kaikkiJuomat) {
+    public void tulostetaanJuomat() {
         System.out.println("---------------------");
         List<Juoma> tulostettavatJuomat = serveri.find(Juoma.class).findList();
         for (Juoma j : tulostettavatJuomat) {
@@ -97,58 +114,68 @@ public class ToimintaLogiikka {
         odotetaanEnteria.nextLine();
     }
 
-    public void lisataanJuoma(BufferedReader multiLukija, Scanner lukija, XEiKaytossaJuomalista kaikkiJuomat) throws IOException {
+    public void tulostetaanBaarit() {
+        System.out.println("---------------------");
+        List<Baari> tulostettavatBaarit = serveri.find(Baari.class).findList();
+        for (Baari b : tulostettavatBaarit) {
+            System.out.println(b);
+        }
+        System.out.println("---------------------");
+        Scanner odotetaanEnteria = new Scanner(System.in);
+        System.out.println("Paina enteriä jatkaaksesi.");
+        odotetaanEnteria.nextLine();
+    }
+
+    public void lisataanJuoma(BufferedReader multiLukija, Scanner lukija, JuomaHallinta juomaHallinta) throws IOException {
         System.out.println("Anna juoman nimi:");
         String juomanNimi = multiLukija.readLine();
         System.out.println("Anna juoman kuvaus");
         String juomanKuvaus = multiLukija.readLine();
         System.out.println("Anna juoman alkoholiprosentit (muotoesimerkki 4.7)");
         Double juomanProsentit = lukija.nextDouble();
-        Juoma lisattavaJuoma = new Juoma(juomanNimi, juomanKuvaus, juomanProsentit);
-        //lisattavaJuoma.setLisaaja(this.kirjautunutKayttaja);
+        Juoma lisattavaJuoma = new Juoma(juomanNimi, juomanKuvaus, juomanProsentit, this.kirjautunutKayttaja.getTunnus());
 
 
-        if (kaikkiJuomat.loytyykoJuomaListalta(juomanNimi) == false) {
+        if (juomaHallinta.Loytyyko(juomanNimi) == false) {
             this.serveri.save(lisattavaJuoma);
         } else {
             System.out.println("Juoman lisäys epäonnistui");
         }
     }
 
-    public void poistetaanJuoma(BufferedReader multiLukija, Scanner lukija, XEiKaytossaJuomalista kaikkiJuomat) throws IOException {
+    public void poistetaanJuoma(BufferedReader multiLukija, Scanner lukija, JuomaHallinta juomaHallinta) throws IOException {
         System.out.println("Anna juoman nimi:");
         String juomanNimi = multiLukija.readLine();
-
-
-        if (kaikkiJuomat.loytyykoJuomaListalta(juomanNimi) == true) {
-            kaikkiJuomat.poistaJuomalistastaJuoma(juomanNimi);
-            kaikkiJuomat.talleta();
-            System.out.println("Juoman poisto onnistui");
+        if (juomaHallinta.poista(juomanNimi) == true) {
+            System.out.println("Juoman poisto onnistui!");
         } else {
-            System.out.println("Juoman poisto epäonnistui");
+            System.out.println("Juoman poisto epäonnistui, tarkasta kirjoitusasu.");
         }
+
     }
 
-    public void baarinLisays(BufferedReader multiLukija, XEiKaytossaBaarilista kaikkiBaarit) throws IOException {
+    public void baarinLisays(BufferedReader multiLukija, BaariHallinta baariHallinta) throws IOException {
         System.out.println("Anna baarin nimi:");
         String baarinNimi = multiLukija.readLine();
         System.out.println("Anna baarin kuvaus");
         String baarinKuvaus = multiLukija.readLine();
-        Baari bb = new Baari(baarinNimi, baarinKuvaus);
-        if (kaikkiBaarit.loytyykoBaariListasta(baarinNimi) == false) {
-            kaikkiBaarit.lisaaBaari(bb);
-            kaikkiBaarit.talleta();
+        Baari lisattavaBaari = new Baari(baarinNimi, baarinKuvaus);
+
+        if (baariHallinta.Loytyyko(baarinNimi) == false) {
+            this.serveri.save(lisattavaBaari);
         } else {
-            System.out.println("Lisäys epäonnistui.");
+            System.out.println("Baarin lisäys epäonnistui");
         }
     }
 
-    public void baarinPoisto(BufferedReader multiLukija, XEiKaytossaBaarilista kaikkiBaarit) throws IOException {
+    public void poistetaanBaari(BufferedReader multiLukija, Scanner lukija, BaariHallinta baariHallinta) throws IOException {
         System.out.println("Anna baarin nimi:");
         String baarinNimi = multiLukija.readLine();
-        if (kaikkiBaarit.loytyykoBaariListasta(baarinNimi) == true) {
-            kaikkiBaarit.poistaBaari(baarinNimi);
-            kaikkiBaarit.talleta();
+        if (baariHallinta.poista(baarinNimi) == true) {
+            System.out.println("Baarin poisto onnistui!");
+        } else {
+            System.out.println("Baarin poisto epäonnistui, tarkasta kirjoitusasu.");
         }
+
     }
 }

@@ -18,17 +18,27 @@ public class Juoma {
 
     private String name;
     private String juomanKuvaus;
+    private String lisaaja;
     private double juomanAlkoholiprosentti;
     @Id
     private Integer id;
 
+    public String getLisaaja() {
+        return lisaaja;
+    }
+
+    public void setLisaaja(String lisaaja) {
+        this.lisaaja = lisaaja;
+    }
+
     public Juoma() {
     }
 
-    public Juoma(String juomanNimi, String juomanKuvaus, double juomanAlkoholiProsentti) {
+    public Juoma(String juomanNimi, String juomanKuvaus, double juomanAlkoholiProsentti, String lisaaja) {
         this.name = juomanNimi;
         this.juomanKuvaus = juomanKuvaus;
         this.juomanAlkoholiprosentti = juomanAlkoholiProsentti;
+        this.lisaaja=lisaaja;
     }
 
     public void setId(Integer id) {
@@ -65,6 +75,6 @@ public class Juoma {
 
     @Override
     public String toString() {
-        return this.name + " | " + this.juomanKuvaus + " | " + this.juomanAlkoholiprosentti;
+        return this.name + " | " + this.juomanKuvaus + " | " + this.juomanAlkoholiprosentti + " | " + this.lisaaja;
     }
 }

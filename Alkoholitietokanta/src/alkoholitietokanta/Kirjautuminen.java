@@ -105,9 +105,12 @@ public class Kirjautuminen {
 
     private void alustetaanTietokanta() throws OptimisticLockException {
         Kayttaja k1 = new Kayttaja("asd", "222");
-        Juoma j1 = new Juoma("Black Rat", "Natural dry apple cider", 4.7);
+        Juoma j1 = new Juoma("Black Rat", "Natural dry apple cider", 4.7, "Matti");
+        Baari b1 = new Baari("William K", "Mukava oluthuone");
         server.save(k1);
         server.save(j1);
+        server.save(b1);
+        
 
     }
 }
