@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package alkoholitietokanta;
+package eiKaytossa;
 
+import alkoholitietokanta.Juoma;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.FileWriter;

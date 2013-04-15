@@ -4,7 +4,7 @@
  */
 
 import alkoholitietokanta.Juoma;
-import alkoholitietokanta.XEiKaytossaJuomalista;
+import eiKaytossa.XEiKaytossaJuomalista;
 import alkoholitietokanta.KayttajaHallinta;
 import java.io.IOException;
 import java.util.HashMap;

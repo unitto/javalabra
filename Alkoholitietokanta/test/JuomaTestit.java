@@ -4,7 +4,7 @@
  */
 
 import alkoholitietokanta.Juoma;
-import alkoholitietokanta.XEiKaytossaJuomalista;
+import eiKaytossa.XEiKaytossaJuomalista;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

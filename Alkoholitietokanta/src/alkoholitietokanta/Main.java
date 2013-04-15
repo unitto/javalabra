@@ -1,4 +1,3 @@
-
 package alkoholitietokanta;
 
 import com.avaje.ebean.EbeanServer;
@@ -8,24 +7,27 @@ import com.avaje.ebean.config.DataSourceConfig;
 import com.avaje.ebean.config.ServerConfig;
 import com.avaje.ebean.config.dbplatform.SQLitePlatform;
 import java.io.IOException;
-/**
- * 
- * @author katu
- * 
- * Tämä luokka alustaa EbeanServerin oikeilla asetuksilla sekä mainin kautta käynnistää Kirjautuminen-luokan, jossa sijaitsee myös ensimmäinen menu.
- * Tässä luotua EbeanServer serveriä siirretään myös Kirjautuminen-luokkaan ja sieltä myöhemmin avattavaan ToimintaLogiikka-luokkaan
- * 
- **/
 
+/**
+ *
+ * @author katu
+ *
+ * Tämä luokka alustaa EbeanServerin oikeilla asetuksilla sekä mainin kautta
+ * käynnistää Kirjautuminen-luokan, jossa sijaitsee myös ensimmäinen menu. Tässä
+ * luotua EbeanServer serveriä siirretään myös Kirjautuminen-luokkaan ja sieltä
+ * myöhemmin avattavaan ToimintaLogiikka-luokkaan
+ *
+ *
+ */
 public class Main {
-    
+
     public static void main(String[] args) throws IOException {
         boolean tuhotaanJaLuodaanTaulut = true;
         EbeanServer server = initializeDatabase(tuhotaanJaLuodaanTaulut);
         new Kirjautuminen(server).ohjelmanAloitus(tuhotaanJaLuodaanTaulut);
     }
-    
-  private static EbeanServer initializeDatabase(boolean tuhotaanJaLuodaanTaulut) {
+
+    private static EbeanServer initializeDatabase(boolean tuhotaanJaLuodaanTaulut) {
         ServerConfig config = new ServerConfig();
         config.setName("alkoholitietokantaDB");
 
@@ -44,6 +46,8 @@ public class Main {
         config.addClass(Kayttaja.class);
         config.addClass(Juoma.class);
         config.addClass(Baari.class);
+        config.addClass(BaariReissu.class);
+        config.addClass(RyyppyReissu.class);
 
 
         if (tuhotaanJaLuodaanTaulut) {
@@ -52,5 +56,5 @@ public class Main {
 
         }
         return EbeanServerFactory.create(config);
-    }  
+    }
 }

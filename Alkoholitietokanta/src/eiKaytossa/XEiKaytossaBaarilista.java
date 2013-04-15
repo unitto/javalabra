@@ -1,5 +1,6 @@
-package alkoholitietokanta;
+package eiKaytossa;
 
+import alkoholitietokanta.Baari;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

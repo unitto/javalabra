@@ -4,6 +4,7 @@
  */
 package alkoholitietokanta;
 
+import eiKaytossa.XEiKaytossaBaarilista;
 import java.io.IOException;
 import java.util.Scanner;
 
