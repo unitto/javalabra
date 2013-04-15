@@ -34,4 +34,8 @@ voittoa ei kuitenkaan tullut, homma ei vain toiminut.
 12.04.13 - 13:00 - 14:00 (1h)
 Vaakapallon kanssa katsottiin miksi edelleen tuli erroreita --> JDK-polku oli väärä.
 Kirjoitettu kaikkiin luokkiin JDOCS:it sekä tehty sekvenssikaavio tunnuksenLisays-metodille.	
+-------
+15.04.13 - 15:00 - 21:00 (7h)
+Lisää toiminnallisuutta ja läjä koodia.
+Illan vääntö loppui päänsärkyyn ja erroriin. Koodauspaikkana toimi William K.
 
