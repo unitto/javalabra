@@ -57,7 +57,7 @@ public class KayttajaHallinta {
     }
 
     public boolean Loytyyko(String tunnus) {
-        System.out.println("Haetaan tunnuksella " + tunnus);
+
         String tehtavaHaku =
                 " find kayttaja "
                 + " where tunnus = :pTunnus ";

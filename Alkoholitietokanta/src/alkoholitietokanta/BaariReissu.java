@@ -6,6 +6,9 @@
 package alkoholitietokanta;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -47,5 +50,37 @@ public class BaariReissu {
 
     public void setJuodutJuomatLista(HashMap<Juoma, Integer> juodutJuomatLista) {
         this.juodutJuomatLista = juodutJuomatLista;
+    }
+
+    public void lisaaJuoma(Juoma j, int maara) throws Exception {
+
+        if (this.juodutJuomatLista == null) {
+            this.juodutJuomatLista = new HashMap<Juoma, Integer>();
+        }
+        if (this.juodutJuomatLista.containsKey(j)) {
+            int uusiMaara = this.juodutJuomatLista.get(j) + maara;
+            this.juodutJuomatLista.remove(j);
+            this.juodutJuomatLista.put(j, maara);
+        } else {
+            this.juodutJuomatLista.put(j, maara);
+        }
+
+
+    }
+
+    public boolean poistaJuoma(Juoma j) {
+        if (this.juodutJuomatLista.containsKey(j)) {
+            this.juodutJuomatLista.remove(j);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void tulostaJuomat() {
+        for (Juoma j: this.juodutJuomatLista.keySet())
+        {
+            System.out.println("Juoma: "+ j.getName() + "| Maara: " + this.juodutJuomatLista.get(j));
+        }
     }
 }

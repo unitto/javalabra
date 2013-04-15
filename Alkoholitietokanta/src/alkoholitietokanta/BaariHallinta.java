@@ -40,7 +40,6 @@ public class BaariHallinta {
     }
 
     public boolean Loytyyko(String baarinNimi) {
-        System.out.println("Haetaan baarilla " + baarinNimi);
         List<Baari> tulos = hakuBaarinNimella(baarinNimi);
 
         if (tulos != null && tulos.size() > 0) {
@@ -52,7 +51,6 @@ public class BaariHallinta {
 
     public boolean poista(String baarinNimi) {
 
-        System.out.println("Haetaan baarilla " + baarinNimi);
         List<Baari> tulos = hakuBaarinNimella(baarinNimi);
 
         if (tulos != null && tulos.size() > 0) {

@@ -40,4 +40,21 @@ public class RyyppyReissu {
     public void setListaBaariReissuista(List<BaariReissu> listaBaariReissuista) {
         this.listaBaariReissuista = listaBaariReissuista;
     }
+
+    public void lisaaBaariReissu(BaariReissu reissu) {
+        if (this.listaBaariReissuista.contains(reissu)) {
+            System.out.println("Identtinen reissu on jo lisätty.");
+        } else {
+            this.listaBaariReissuista.add(reissu);
+        }
+    }
+
+    public boolean poistaBaariReissu(BaariReissu reissu) {
+        if (this.listaBaariReissuista.contains(reissu)) {
+            this.listaBaariReissuista.remove(reissu);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -32,7 +32,7 @@ public class Kirjautuminen {
         this.server = serveri;
     }
 
-    public void ohjelmanAloitus(boolean uusiTietokanta) throws IOException {
+    public void ohjelmanAloitus(boolean uusiTietokanta) throws IOException, Exception {
         Scanner lukija = new Scanner(System.in);
         KayttajaHallinta hallinta = new KayttajaHallinta(server);
         if (uusiTietokanta == true) {
@@ -107,6 +107,7 @@ public class Kirjautuminen {
         Kayttaja k1 = new Kayttaja("asd", "222");
         Juoma j1 = new Juoma("Black Rat", "Natural dry apple cider", 4.7, "Matti");
         Baari b1 = new Baari("William K", "Mukava oluthuone");
+        BaariReissu br1 = new BaariReissu();
         server.save(k1);
         server.save(j1);
         server.save(b1);

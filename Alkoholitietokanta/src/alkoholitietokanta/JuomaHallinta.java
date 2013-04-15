@@ -47,7 +47,7 @@ public class JuomaHallinta {
     }
 
     public boolean Loytyyko(String juomanNimi) {
-        System.out.println("Haetaan juomalla " + juomanNimi);
+
         List<Juoma> tulos = hakuJuomanNimella(juomanNimi);
 
         if (tulos != null && tulos.size() > 0) {
@@ -59,7 +59,6 @@ public class JuomaHallinta {
 
     public boolean poista(String juomanNimi) {
 
-        System.out.println("Haetaan juomalla " + juomanNimi);
         List<Juoma> tulos = hakuJuomanNimella(juomanNimi);
 
         if (tulos != null && tulos.size() > 0) {
@@ -79,6 +78,17 @@ public class JuomaHallinta {
         query.setParameter("pJuoma", juomanNimi);
         List<Juoma> tulos = query.findList();
         return tulos;
+    }
+
+    public Juoma LoytyykoJuomaNimellaPalautetaanJuoma(String juomanNimi) {
+        List<Juoma> tulos = hakuJuomanNimella(juomanNimi);
+
+        if (tulos != null && tulos.size() > 0) {
+
+            return tulos.get(0);
+        } else {
+            return null;
+        }
     }
 }
 
