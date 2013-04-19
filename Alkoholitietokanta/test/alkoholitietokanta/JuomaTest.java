@@ -4,10 +4,6 @@
  */
 package alkoholitietokanta;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,22 +14,6 @@ import static org.junit.Assert.*;
 public class JuomaTest {
     
     public JuomaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**
@@ -46,7 +26,6 @@ public class JuomaTest {
         String expResult = "";
         String result = instance.getLisaaja();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -59,7 +38,6 @@ public class JuomaTest {
         String lisaaja = "";
         Juoma instance = new Juoma();
         instance.setLisaaja(lisaaja);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -72,7 +50,6 @@ public class JuomaTest {
         Integer id = null;
         Juoma instance = new Juoma();
         instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -86,7 +63,6 @@ public class JuomaTest {
         Integer expResult = null;
         Integer result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -99,7 +75,6 @@ public class JuomaTest {
         String name = "";
         Juoma instance = new Juoma();
         instance.setName(name);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -113,7 +88,6 @@ public class JuomaTest {
         String expResult = "";
         String result = instance.getName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -126,7 +100,6 @@ public class JuomaTest {
         String juomanKuvaus = "";
         Juoma instance = new Juoma();
         instance.setJuomanKuvaus(juomanKuvaus);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -140,7 +113,6 @@ public class JuomaTest {
         String expResult = "";
         String result = instance.getJuomanKuvaus();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -153,7 +125,6 @@ public class JuomaTest {
         double juomanAlkoholiprosentti = 0.0;
         Juoma instance = new Juoma();
         instance.setJuomanAlkoholiprosentti(juomanAlkoholiprosentti);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -167,7 +138,6 @@ public class JuomaTest {
         double expResult = 0.0;
         double result = instance.getJuomanAlkoholiprosentti();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -181,7 +151,6 @@ public class JuomaTest {
         String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 }

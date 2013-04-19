@@ -5,10 +5,6 @@
 package alkoholitietokanta;
 
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,22 +15,6 @@ import static org.junit.Assert.*;
 public class BaariHallintaTest {
     
     public BaariHallintaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**
@@ -49,7 +29,6 @@ public class BaariHallintaTest {
         boolean expResult = false;
         boolean result = instance.lisaa(nimi, kuvaus);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -64,7 +43,6 @@ public class BaariHallintaTest {
         boolean expResult = false;
         boolean result = instance.Loytyyko(baarinNimi);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -79,7 +57,6 @@ public class BaariHallintaTest {
         boolean expResult = false;
         boolean result = instance.poista(baarinNimi);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -94,7 +71,6 @@ public class BaariHallintaTest {
         List expResult = null;
         List result = instance.hakuBaarinNimella(baarinNimi);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 }

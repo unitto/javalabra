@@ -5,10 +5,6 @@
 package alkoholitietokanta;
 
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,22 +15,6 @@ import static org.junit.Assert.*;
 public class RyyppyReissuTest {
     
     public RyyppyReissuTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**
@@ -47,7 +27,6 @@ public class RyyppyReissuTest {
         String expResult = "";
         String result = instance.getRyyppyReissunNimi();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -60,7 +39,6 @@ public class RyyppyReissuTest {
         String RyyppyReissunNimi = "";
         RyyppyReissu instance = new RyyppyReissu();
         instance.setRyyppyReissunNimi(RyyppyReissunNimi);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -74,7 +52,6 @@ public class RyyppyReissuTest {
         List expResult = null;
         List result = instance.getListaBaariReissuista();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -87,7 +64,32 @@ public class RyyppyReissuTest {
         List<BaariReissu> listaBaariReissuista = null;
         RyyppyReissu instance = new RyyppyReissu();
         instance.setListaBaariReissuista(listaBaariReissuista);
-        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of lisaaBaariReissu method, of class RyyppyReissu.
+     */
+    @Test
+    public void testLisaaBaariReissu() {
+        System.out.println("lisaaBaariReissu");
+        BaariReissu reissu = null;
+        RyyppyReissu instance = new RyyppyReissu();
+        instance.lisaaBaariReissu(reissu);
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of poistaBaariReissu method, of class RyyppyReissu.
+     */
+    @Test
+    public void testPoistaBaariReissu() {
+        System.out.println("poistaBaariReissu");
+        BaariReissu reissu = null;
+        RyyppyReissu instance = new RyyppyReissu();
+        boolean expResult = false;
+        boolean result = instance.poistaBaariReissu(reissu);
+        assertEquals(expResult, result);
         fail("The test case is a prototype.");
     }
 }

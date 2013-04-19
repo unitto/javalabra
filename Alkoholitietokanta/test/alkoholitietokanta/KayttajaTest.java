@@ -4,10 +4,6 @@
  */
 package alkoholitietokanta;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,22 +14,6 @@ import static org.junit.Assert.*;
 public class KayttajaTest {
     
     public KayttajaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**
@@ -46,7 +26,6 @@ public class KayttajaTest {
         String expResult = "";
         String result = instance.getTunnus();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -59,7 +38,6 @@ public class KayttajaTest {
         String kayttajanTunnus = "";
         Kayttaja instance = new Kayttaja();
         instance.setTunnus(kayttajanTunnus);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -73,7 +51,6 @@ public class KayttajaTest {
         String expResult = "";
         String result = instance.getSalasana();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -86,7 +63,6 @@ public class KayttajaTest {
         String kayttajanSalasana = "";
         Kayttaja instance = new Kayttaja();
         instance.setSalasana(kayttajanSalasana);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -100,7 +76,6 @@ public class KayttajaTest {
         String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 }

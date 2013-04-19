@@ -48,6 +48,7 @@ public class Main {
         config.addClass(Baari.class);
         config.addClass(BaariReissu.class);
         config.addClass(RyyppyReissu.class);
+        
 
 
         if (tuhotaanJaLuodaanTaulut) {

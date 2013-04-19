@@ -31,6 +31,7 @@ public class BaariReissu {
     private HashMap<Juoma, Integer> juodutJuomatLista;
 
     public BaariReissu() {
+        this.juodutJuomatLista = new HashMap<Juoma, Integer>();
     }
 
     public String getKuvaus() {
@@ -49,6 +50,10 @@ public class BaariReissu {
         this.id = id;
     }
 
+    public String getBaarinNimi() {
+        return baarinNimi;
+    }
+
     public void setBaarinNimi(String baarinNimi) {
         this.baarinNimi = baarinNimi;
     }
@@ -62,19 +67,14 @@ public class BaariReissu {
     }
 
     public void lisaaJuoma(Juoma j, int maara) throws Exception {
-
-        if (this.juodutJuomatLista == null) {
-            this.juodutJuomatLista = new HashMap<Juoma, Integer>();
-        }
         if (this.juodutJuomatLista.containsKey(j)) {
             int uusiMaara = this.juodutJuomatLista.get(j) + maara;
             this.juodutJuomatLista.remove(j);
             this.juodutJuomatLista.put(j, maara);
+            System.out.println("***Lisätään vanhan päälle");
         } else {
             this.juodutJuomatLista.put(j, maara);
         }
-
-
     }
 
     public boolean poistaJuoma(Juoma j) {
@@ -86,9 +86,17 @@ public class BaariReissu {
         }
     }
 
+    @Override
+    public String toString() {
+        return "BaariReissu{" + "juodutJuomatLista=" + this.juodutJuomatLista + '}';
+    }
+
     public void tulostaJuomat() {
-        for (Juoma j : this.juodutJuomatLista.keySet()) {
-            System.out.println("Juoma: " + j.getName() + "| Maara: " + this.juodutJuomatLista.get(j));
+         Iterator<Juoma> iteraattori = this.juodutJuomatLista.keySet().iterator();
+        while (iteraattori.hasNext()) {
+            Juoma j = (Juoma) iteraattori.next();
+            Integer maara = (Integer) this.juodutJuomatLista.get(j);
+            System.out.println("Juoma: " + j.getName() + "| Maara: " + maara);
         }
     }
 }

@@ -4,12 +4,9 @@
  */
 package alkoholitietokanta;
 
+import com.avaje.ebean.EbeanServer;
 import java.io.BufferedReader;
 import java.util.Scanner;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,21 +18,16 @@ public class ToimintaLogiikkaTest {
     
     public ToimintaLogiikkaTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+
+    /**
+     * Test of tulostaMenu method, of class ToimintaLogiikka.
+     */
+    @Test
+    public void testTulostaMenu() {
+        System.out.println("tulostaMenu");
+        ToimintaLogiikka instance = null;
+        instance.tulostaMenu();
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -46,7 +38,6 @@ public class ToimintaLogiikkaTest {
         System.out.println("tulostetaanJuomat");
         ToimintaLogiikka instance = null;
         instance.tulostetaanJuomat();
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -58,7 +49,17 @@ public class ToimintaLogiikkaTest {
         System.out.println("tulostetaanBaarit");
         ToimintaLogiikka instance = null;
         instance.tulostetaanBaarit();
-        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of tulostetaanBaariReissut method, of class ToimintaLogiikka.
+     */
+    @Test
+    public void testTulostetaanBaariReissut() {
+        System.out.println("tulostetaanBaariReissut");
+        ToimintaLogiikka instance = null;
+        instance.tulostetaanBaariReissut();
         fail("The test case is a prototype.");
     }
 
@@ -73,7 +74,6 @@ public class ToimintaLogiikkaTest {
         JuomaHallinta juomaHallinta = null;
         ToimintaLogiikka instance = null;
         instance.lisataanJuoma(multiLukija, lukija, juomaHallinta);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -88,7 +88,6 @@ public class ToimintaLogiikkaTest {
         JuomaHallinta juomaHallinta = null;
         ToimintaLogiikka instance = null;
         instance.poistetaanJuoma(multiLukija, lukija, juomaHallinta);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -102,7 +101,6 @@ public class ToimintaLogiikkaTest {
         BaariHallinta baariHallinta = null;
         ToimintaLogiikka instance = null;
         instance.baarinLisays(multiLukija, baariHallinta);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -117,7 +115,6 @@ public class ToimintaLogiikkaTest {
         BaariHallinta baariHallinta = null;
         ToimintaLogiikka instance = null;
         instance.poistetaanBaari(multiLukija, lukija, baariHallinta);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -133,7 +130,6 @@ public class ToimintaLogiikkaTest {
         BaariHallinta baariHallinta = null;
         ToimintaLogiikka instance = null;
         instance.lisaykset(lukija, multiLukija, juomaHallinta, baariHallinta);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -149,7 +145,6 @@ public class ToimintaLogiikkaTest {
         BaariHallinta baariHallinta = null;
         ToimintaLogiikka instance = null;
         instance.poistot(lukija, multiLukija, juomaHallinta, baariHallinta);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -162,19 +157,22 @@ public class ToimintaLogiikkaTest {
         Scanner lukija = null;
         ToimintaLogiikka instance = null;
         instance.listaukset(lukija);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of tulostaMenu method, of class ToimintaLogiikka.
+     * Test of LisataanBaariReissu method, of class ToimintaLogiikka.
      */
     @Test
-    public void testTulostaMenu() {
-        System.out.println("tulostaMenu");
+    public void testLisataanBaariReissu() throws Exception {
+        System.out.println("LisataanBaariReissu");
+        BufferedReader multiLukija = null;
+        BaariHallinta baariHallinta = null;
+        JuomaHallinta juomaHallinta = null;
+        Scanner lukija = null;
+        EbeanServer server = null;
         ToimintaLogiikka instance = null;
-        instance.tulostaMenu();
-        // TODO review the generated test code and remove the default call to fail.
+        instance.LisataanBaariReissu(multiLukija, baariHallinta, juomaHallinta, lukija, server);
         fail("The test case is a prototype.");
     }
 }

@@ -4,6 +4,7 @@ import com.avaje.ebean.EbeanServer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -124,7 +125,9 @@ public class ToimintaLogiikka {
     public void tulostetaanBaariReissut() {
         System.out.println("---------------------");
         List<BaariReissu> tulostettavatBaariReissut = serveri.find(BaariReissu.class).findList();
-        for (BaariReissu b : tulostettavatBaariReissut) {
+        Iterator<BaariReissu> iteraattori = tulostettavatBaariReissut.iterator();
+        while (iteraattori.hasNext()) {
+            BaariReissu b = iteraattori.next();
             b.tulostaJuomat();
         }
         System.out.println("---------------------");
@@ -231,6 +234,7 @@ public class ToimintaLogiikka {
             System.out.println("Annan reissun kuvaus:");
             System.out.print("Syöte : ");
             String kuvaus = multiLukija.readLine();
+            reissu.setBaarinNimi(paikanNimi);
             reissu.setKuvaus(kuvaus);
             while (true) {
                 System.out.println("\nLisätään paikkaan " + paikanNimi + " juomia. Alla lista juomista. Anna juoman nimi tai anna tyhja lopettaaksesi:\n");
