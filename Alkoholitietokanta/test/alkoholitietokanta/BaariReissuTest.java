@@ -4,6 +4,8 @@
  */
 package alkoholitietokanta;
 
+import alkoholitietokanta.domain.BaariReissu;
+import alkoholitietokanta.domain.Juoma;
 import java.util.HashMap;
 import org.junit.Test;
 import static org.junit.Assert.*;

@@ -4,6 +4,8 @@
  */
 package alkoholitietokanta;
 
+import alkoholitietokanta.domain.BaariReissu;
+import alkoholitietokanta.domain.RyyppyReissu;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;

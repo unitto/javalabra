@@ -4,6 +4,7 @@
  */
 package alkoholitietokanta;
 
+import alkoholitietokanta.domain.Baari;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

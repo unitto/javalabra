@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 
-import alkoholitietokanta.Juoma;
+import alkoholitietokanta.domain.Juoma;
 import eiKaytossa.XEiKaytossaJuomalista;
-import alkoholitietokanta.KayttajaHallinta;
+import alkoholitietokanta.hallinta.KayttajaHallinta;
 import java.io.IOException;
 import java.util.HashMap;
 import org.junit.After;

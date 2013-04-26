@@ -4,7 +4,7 @@
  */
 package eiKaytossa;
 
-import alkoholitietokanta.Juoma;
+import alkoholitietokanta.domain.Juoma;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.FileWriter;

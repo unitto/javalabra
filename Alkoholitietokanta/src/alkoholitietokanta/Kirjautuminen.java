@@ -1,5 +1,11 @@
 package alkoholitietokanta;
 
+import alkoholitietokanta.hallinta.JuomaHallinta;
+import alkoholitietokanta.hallinta.KayttajaHallinta;
+import alkoholitietokanta.domain.Juoma;
+import alkoholitietokanta.domain.BaariReissu;
+import alkoholitietokanta.domain.Kayttaja;
+import alkoholitietokanta.domain.Baari;
 import com.avaje.ebean.EbeanServer;
 import java.io.IOException;
 import java.util.Scanner;

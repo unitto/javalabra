@@ -1,5 +1,12 @@
 package alkoholitietokanta;
 
+import alkoholitietokanta.hallinta.JuomaHallinta;
+import alkoholitietokanta.hallinta.BaariHallinta;
+import alkoholitietokanta.domain.Juoma;
+import alkoholitietokanta.domain.BaariReissu;
+import alkoholitietokanta.domain.Kayttaja;
+import alkoholitietokanta.domain.Baari;
+import alkoholitietokanta.domain.RyyppyReissu;
 import com.avaje.ebean.EbeanServer;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -41,20 +48,20 @@ public class ToimintaLogiikka {
 
         while (valinta != 9) {
             tulostaMenu();
-            valinta = lukija.nextInt();
-
+            try {
+                valinta = lukija.nextInt();
+            } catch (Exception e) {
+                System.out.println("Syötteesi oli virheellinen, kokeile uudelleen");
+            }
             if (valinta == 1) {
                 lisaykset(lukija, multiLukija, juomaHallinta, baariHallinta);
-
             }
             if (valinta == 2) {
                 poistot(lukija, multiLukija, juomaHallinta, baariHallinta);
             }
-
             if (valinta == 3) {
                 listaukset(lukija);
             }
-
             if (valinta == 4) {
                 System.out.println("1: Lisää baarireissu \n2: Lisää baarireissu ryyppyreissuun");
                 int valintaSisalla = lukija.nextInt();
@@ -64,20 +71,15 @@ public class ToimintaLogiikka {
                     RyyppyReissu rReissu = new RyyppyReissu();
                     System.out.println("Luodaan uusi Ryyppyreissu. Valitse alla olevasta listasta valmiita baarikeikkoja: ");
                     tulostetaanBaariReissut();
-
-
-
                 } else {
                     System.out.println("Huono valinta :(");
                 }
             }
-
             if (valinta == 5) {
                 //baarinPoisto(multiLukija, kaikkiBaarit);
             }
             if (valinta < 1 || valinta > 9) {
                 System.out.println("Ole hyvä ja valitse 1-9 väliltä.\n");
-
             }
         }
     }
@@ -230,6 +232,10 @@ public class ToimintaLogiikka {
         tulostetaanBaarit();
         System.out.print("Syöte : ");
         String paikanNimi = multiLukija.readLine();
+        aloitetaanLisaysJosBaariLoytyy(baariHallinta, paikanNimi, multiLukija, reissu, juomaHallinta, lukija);
+    }
+
+    public void aloitetaanLisaysJosBaariLoytyy(BaariHallinta baariHallinta, String paikanNimi, BufferedReader multiLukija, BaariReissu reissu, JuomaHallinta juomaHallinta, Scanner lukija) throws Exception {
         if (baariHallinta.Loytyyko(paikanNimi)) {
             System.out.println("Annan reissun kuvaus:");
             System.out.print("Syöte : ");

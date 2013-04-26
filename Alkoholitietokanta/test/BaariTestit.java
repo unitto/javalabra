@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 
-import alkoholitietokanta.Baari;
+import alkoholitietokanta.domain.Baari;
 import eiKaytossa.XEiKaytossaBaarilista;
-import alkoholitietokanta.Juoma;
+import alkoholitietokanta.domain.Juoma;
 import eiKaytossa.XEiKaytossaJuomalista;
 import org.junit.After;
 import org.junit.AfterClass;

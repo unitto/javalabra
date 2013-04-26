@@ -4,6 +4,8 @@
  */
 package alkoholitietokanta;
 
+import alkoholitietokanta.hallinta.JuomaHallinta;
+import alkoholitietokanta.hallinta.BaariHallinta;
 import com.avaje.ebean.EbeanServer;
 import java.io.BufferedReader;
 import java.util.Scanner;

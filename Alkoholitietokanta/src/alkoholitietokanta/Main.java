@@ -1,5 +1,10 @@
 package alkoholitietokanta;
 
+import alkoholitietokanta.domain.Juoma;
+import alkoholitietokanta.domain.BaariReissu;
+import alkoholitietokanta.domain.Kayttaja;
+import alkoholitietokanta.domain.Baari;
+import alkoholitietokanta.domain.RyyppyReissu;
 import com.avaje.ebean.EbeanServer;
 import com.avaje.ebean.EbeanServerFactory;
 import com.avaje.ebean.Transaction;
