@@ -1,0 +1,77 @@
+Alkoholitietokanta*
+*******************
+
+Käyttöohjeet:
+
+Alkoholitietokantaa käytetään näppäimistöllä komentokehoitteen kautta. Valikko näyttää mitä toiminnallisuuksia löytyy ja mitä kussakin kohdassa on tehtävä.
+
+
+
+
+|||||||||||||||
+Kirjautuminen||
+|||||||||||||||
+
+Näyte aloitusvalikosta:
+***********************************
+Tervetuloa Alkoholitietokantaan! 
+Jatka valitsemalla alla olevasta menusta. 
+---------------------
+1. Lisää käyttäjä
+2. Kirjaudu sisään
+3. Poista käyttäjä
+4. Lopeta
+---------------------
+Anna valintanumero: 
+
+***********************************
+Alkoholitietokanta käynnistyy kirjautumisruudulla. Kirjautumisuurussa on mahdollisuus lisätä ja poistaa käyttäjiä sekä kirjautua sisään. Alkoholitietokanta on mahdollista myös lopettaa aloitusvalikosta.
+
+Valinnat tehdään painamalla halutun toiminnon mukainen numero. Valinta suoritetaan painamalla Enter-näppäintä.
+
+1: Käyttäjän lisäämiseen tarvitaan käyttäjän tunnus sekä salasana. Alkoholitietokanta tarkastaa, että saman nimistä käyttäjää ei ole entuudestaan olemassa. Mikäli uusi tunnus on uniikki onnistuu käyttäjän lisääminen.
+
+2: Kirjautuminen tapahtuu kirjoittamalla oikea tunnus ja sitä vastaava salasana. Mikäli jompi kumpi näistä ei täsmää tietokannassa olevia tietoja kirjautuminen epäonnistuu.
+
+3: Käyttäjän poistaminen onnistuu tietämällä oikea tunnus sekä salasana. Mikäli jompi kumpi näistä ei täsmää tietokannassa olevia tietoja käyttäjän poistaminen epäonnistuu.
+
+4: Lopeta-valinta lopettaa ohjelman toiminnan.
+
+
+
+
+|||||||||||||||||
+Toiminnallisuus||
+|||||||||||||||||
+
+Näyte toimintavalikosta:
+***********************************
+---------------------
+Olet kirjautunut sisään käyttäjänä: asd
+---------------------
+1. Lisää juoma / baari
+2. Poista juoma / baari
+3. Listaa juomat / baarit
+4. Lisää baarireissu
+5. Listaa baarireissu
+6. Top 5 juoduimmat ** Ei toiminnassa **
+7. Top 5 paras alkoholi/hinta ** Ei toiminnassa **
+8. Top 5 paras kokemus/hinta ** Ei toiminnassa **
+9. Palaa kirjautumisvalikkoon
+---------------------
+Anna valintanumero: 
+
+***********************************
+
+1: Juoman tai baarin lisäys onnistuu kirjoittamalla pyydetyt syötteet alivalikosta suoritettavan valinnan jälkeen.
+
+2: Juoman tai baarin poisto onnistuu kirjoittamalla poistettavan asian nimi alivalikosta suoritettavan valinnan jälkeen.
+
+3: Juomien tai baarien listaus onnistuu valitsemalla haluttu toiminto alivalikosta.
+
+4: Baarireissun lisääminen onnistuu antamalla pyydetyt syötteet alivalikosta suoritettavan valinnan jälkeen.
+
+5: Lisätyt baarireissut näet tällä valinnalla.
+Valinnat 6-8 eivät ole toiminnassa vielä.
+
+9: Kirjautumisruutuun pääsee takaisin valitsemalla tämän paluu-vaihtoehdon.

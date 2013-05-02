@@ -38,4 +38,13 @@ Kirjoitettu kaikkiin luokkiin JDOCS:it sek‰ tehty sekvenssikaavio tunnuksenLisay
 15.04.13 - 15:00 - 21:00 (7h)
 Lis‰‰ toiminnallisuutta ja l‰j‰ koodia.
 Illan v‰‰ntˆ loppui p‰‰ns‰rkyyn ja erroriin. Koodauspaikkana toimi William K.
-
+-------
+19.04.13 - 12:00 - 20:00 (8h)
+Lis‰‰ toiminnallisuutta ja koodia. Hashmap ei sittenk‰‰n ole hyv‰ juttu tietokannan kera.
+-------
+02.05.13 - 19:00 - 23:00 (4h)
+Dokumentointien tekoa sek‰ hieman lis‰koodia. Baarireissu toimii nyt ja syˆtteet tarkastetaan.
+Testeja edelleen vain kolmella luokalla, en t‰h‰n h‰t‰‰n keksinyt miten l‰hden testaamaan luokkia ilman loputonta mainTesterim‰ist‰ taulujen initialisointia.
+Kiitoksia ohjaajille ymm‰rryksest‰ ja innostavasta meiningist‰! Mukavaa kes‰‰ ja tsemppi‰ tuleviin koitoksiin!
+-------
+Yhteens‰ k‰ytetty aika=47h.

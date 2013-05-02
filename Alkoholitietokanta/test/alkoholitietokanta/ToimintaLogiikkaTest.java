@@ -4,13 +4,18 @@
  */
 package alkoholitietokanta;
 
+import alkoholitietokanta.domain.BaariReissu;
 import alkoholitietokanta.hallinta.JuomaHallinta;
 import alkoholitietokanta.hallinta.BaariHallinta;
 import com.avaje.ebean.EbeanServer;
 import java.io.BufferedReader;
 import java.util.Scanner;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.BeforeClass;
 
 /**
  *
@@ -19,6 +24,22 @@ import static org.junit.Assert.*;
 public class ToimintaLogiikkaTest {
     
     public ToimintaLogiikkaTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
     }
 
     /**
@@ -175,6 +196,72 @@ public class ToimintaLogiikkaTest {
         EbeanServer server = null;
         ToimintaLogiikka instance = null;
         instance.LisataanBaariReissu(multiLukija, baariHallinta, juomaHallinta, lukija, server);
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of aloitetaanLisaysJosBaariLoytyy method, of class ToimintaLogiikka.
+     */
+    @Test
+    public void testAloitetaanLisaysJosBaariLoytyy() throws Exception {
+        System.out.println("aloitetaanLisaysJosBaariLoytyy");
+        BaariHallinta baariHallinta = null;
+        String paikanNimi = "";
+        BufferedReader multiLukija = null;
+        BaariReissu reissu = null;
+        JuomaHallinta juomaHallinta = null;
+        Scanner lukija = null;
+        ToimintaLogiikka instance = null;
+        instance.aloitetaanLisaysJosBaariLoytyy(baariHallinta, paikanNimi, multiLukija, reissu, juomaHallinta, lukija);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of baariRyyppyReissuValinta method, of class ToimintaLogiikka.
+     */
+    @Test
+    public void testBaariRyyppyReissuValinta() throws Exception {
+        System.out.println("baariRyyppyReissuValinta");
+        Scanner lukija = null;
+        BufferedReader multiLukija = null;
+        BaariHallinta baariHallinta = null;
+        JuomaHallinta juomaHallinta = null;
+        EbeanServer serveri = null;
+        ToimintaLogiikka instance = null;
+        instance.baariRyyppyReissuValinta(lukija, multiLukija, baariHallinta, juomaHallinta, serveri);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of valintaLogiikka method, of class ToimintaLogiikka.
+     */
+    @Test
+    public void testValintaLogiikka() throws Exception {
+        System.out.println("valintaLogiikka");
+        int valinta = 0;
+        Scanner lukija = null;
+        BufferedReader multiLukija = null;
+        JuomaHallinta juomaHallinta = null;
+        BaariHallinta baariHallinta = null;
+        EbeanServer serveri = null;
+        ToimintaLogiikka instance = null;
+        instance.valintaLogiikka(valinta, lukija, multiLukija, juomaHallinta, baariHallinta, serveri);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of listaaBaarireissut method, of class ToimintaLogiikka.
+     */
+    @Test
+    public void testListaaBaarireissut() {
+        System.out.println("listaaBaarireissut");
+        EbeanServer serveri = null;
+        ToimintaLogiikka instance = null;
+        instance.listaaBaarireissut(serveri);
+        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 }

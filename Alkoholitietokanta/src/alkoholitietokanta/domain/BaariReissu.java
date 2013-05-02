@@ -5,12 +5,15 @@
  */
 package alkoholitietokanta.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -28,10 +31,18 @@ public class BaariReissu {
     private Integer id;
     private String baarinNimi;
     private String kuvaus;
-    private HashMap<Juoma, Integer> juodutJuomatLista;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<JuomaTilaus> juomaLista;
+
+    public List<JuomaTilaus> getJuomaLista() {
+        return juomaLista;
+    }
+
+    public void setJuomaLista(List<JuomaTilaus> juomaLista) {
+        this.juomaLista = juomaLista;
+    }
 
     public BaariReissu() {
-        this.juodutJuomatLista = new HashMap<Juoma, Integer>();
     }
 
     public String getKuvaus() {
@@ -58,28 +69,16 @@ public class BaariReissu {
         this.baarinNimi = baarinNimi;
     }
 
-    public HashMap<Juoma, Integer> getJuodutJuomatLista() {
-        return juodutJuomatLista;
-    }
-
-    public void setJuodutJuomatLista(HashMap<Juoma, Integer> juodutJuomatLista) {
-        this.juodutJuomatLista = juodutJuomatLista;
-    }
-
-    public void lisaaJuoma(Juoma j, int maara) throws Exception {
-        if (this.juodutJuomatLista.containsKey(j)) {
-            int uusiMaara = this.juodutJuomatLista.get(j) + maara;
-            this.juodutJuomatLista.remove(j);
-            this.juodutJuomatLista.put(j, maara);
-            System.out.println("***Lisätään vanhan päälle");
-        } else {
-            this.juodutJuomatLista.put(j, maara);
+    public void lisaaJuoma(JuomaTilaus jT) {
+        if (juomaLista == null) {
+            juomaLista = new ArrayList<JuomaTilaus>();
         }
+        juomaLista.add(jT);
     }
 
     public boolean poistaJuoma(Juoma j) {
-        if (this.juodutJuomatLista.containsKey(j)) {
-            this.juodutJuomatLista.remove(j);
+        if (loytyykoJuoma(j) != null) {
+            this.juomaLista.remove(loytyykoJuoma(j));
             return true;
         } else {
             return false;
@@ -88,15 +87,24 @@ public class BaariReissu {
 
     @Override
     public String toString() {
-        return "BaariReissu{" + "juodutJuomatLista=" + this.juodutJuomatLista + '}';
+        return "BaariReissu{" + "juodutJuomatLista=" + this.juomaLista.toString() + '}';
     }
 
     public void tulostaJuomat() {
-         Iterator<Juoma> iteraattori = this.juodutJuomatLista.keySet().iterator();
+        Iterator<JuomaTilaus> iteraattori = this.juomaLista.iterator();
+        System.out.println("Baari jossa käyty: " + this.baarinNimi + " | Baarireissun kuvaus: " + this.kuvaus);
         while (iteraattori.hasNext()) {
-            Juoma j = (Juoma) iteraattori.next();
-            Integer maara = (Integer) this.juodutJuomatLista.get(j);
-            System.out.println("Juoma: " + j.getName() + "| Maara: " + maara);
+            JuomaTilaus j = iteraattori.next();
+            System.out.println(j.toString());
         }
+    }
+
+    public JuomaTilaus loytyykoJuoma(Juoma j) {
+        for (JuomaTilaus jT : this.juomaLista) {
+            if (jT.getJuoma().equals(j)) {
+                return jT;
+            }
+        }
+        return null;
     }
 }

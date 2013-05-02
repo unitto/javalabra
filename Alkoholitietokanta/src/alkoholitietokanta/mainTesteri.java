@@ -9,6 +9,7 @@ import alkoholitietokanta.domain.Juoma;
 import alkoholitietokanta.domain.BaariReissu;
 import alkoholitietokanta.domain.Kayttaja;
 import alkoholitietokanta.domain.Baari;
+import alkoholitietokanta.domain.JuomaTilaus;
 import alkoholitietokanta.domain.RyyppyReissu;
 import com.avaje.ebean.EbeanServer;
 import com.avaje.ebean.EbeanServerFactory;
@@ -42,6 +43,9 @@ public class mainTesteri {
         Juoma j2 = new Juoma("Karhu", "Perusbisse", 4.7, "Hattiwatti");
         Baari b1 = new Baari("William K", "Mukava oluthuone");
         Baari b2 = new Baari("Koti", "Oma koti kullan kallis");
+        JuomaTilaus jT1 = new JuomaTilaus(j1, 5);
+
+        
         BaariReissu br1 = new BaariReissu();
         br1.setKuvaus("Kotona alottelin juomaan.");
         BaariReissu br2 = new BaariReissu();
@@ -49,14 +53,12 @@ public class mainTesteri {
         server.save(k1);
         server.save(j1);
         server.save(b1);
-
-        JuomaHallinta jHallinta = new JuomaHallinta(server);
         
-        br1.lisaaJuoma(jHallinta.LoytyykoJuomaNimellaPalautetaanJuoma("Karhu"), 3);
-        br2.lisaaJuoma(jHallinta.LoytyykoJuomaNimellaPalautetaanJuoma("Karhu"), 10);
+        JuomaHallinta jHallinta = new JuomaHallinta(server);
+        br1.lisaaJuoma(jT1);
+
 
         server.save(br1);
-        server.save(br2);
 
         System.out.println("---------------------");
         List<BaariReissu> tulostettavatBaariReissut = server.find(BaariReissu.class).findList();
@@ -66,7 +68,7 @@ public class mainTesteri {
         {
             System.out.println(i);
             BaariReissu b = iteraattori.next();
-            System.out.println(b.toString());
+            b.tulostaJuomat();
             i++;
 
         }
@@ -99,7 +101,8 @@ public class mainTesteri {
         config.addClass(Baari.class);
         config.addClass(BaariReissu.class);
         config.addClass(RyyppyReissu.class);
-
+        config.addClass(JuomaTilaus.class);
+        
 
 
         if (tuhotaanJaLuodaanTaulut) {

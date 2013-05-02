@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package alkoholitietokanta;
+package alkoholitietokanta.domain;
 
 import alkoholitietokanta.domain.Kayttaja;
 import org.junit.Test;

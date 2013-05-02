@@ -4,6 +4,7 @@ import alkoholitietokanta.domain.Juoma;
 import alkoholitietokanta.domain.BaariReissu;
 import alkoholitietokanta.domain.Kayttaja;
 import alkoholitietokanta.domain.Baari;
+import alkoholitietokanta.domain.JuomaTilaus;
 import alkoholitietokanta.domain.RyyppyReissu;
 import com.avaje.ebean.EbeanServer;
 import com.avaje.ebean.EbeanServerFactory;
@@ -52,6 +53,7 @@ public class Main {
         config.addClass(Juoma.class);
         config.addClass(Baari.class);
         config.addClass(BaariReissu.class);
+        config.addClass(JuomaTilaus.class);
         config.addClass(RyyppyReissu.class);
         
 

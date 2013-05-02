@@ -6,6 +6,7 @@ import alkoholitietokanta.domain.Juoma;
 import alkoholitietokanta.domain.BaariReissu;
 import alkoholitietokanta.domain.Kayttaja;
 import alkoholitietokanta.domain.Baari;
+import alkoholitietokanta.domain.JuomaTilaus;
 import com.avaje.ebean.EbeanServer;
 import java.io.IOException;
 import java.util.Scanner;
@@ -49,39 +50,14 @@ public class Kirjautuminen {
         int valinta = 0;
 
         while (valinta != 4) {
-            System.out.println("---------------------");
-            System.out.println("1. Lisää käyttäjä");
-            System.out.println("2. Kirjaudu sisään");
-            System.out.println("3. Poista käyttäjä");
-            System.out.println("4. Lopeta");
-            System.out.println("---------------------");
-            System.out.print("Anna valintanumero: ");
-            valinta = lukija.nextInt();
-
-            if (valinta == 1) {
-                tunnuksenLisays(lukija, hallinta);
+            tulostaMenu();
+            String valintaString = lukija.next();
+            try {
+                valinta = Integer.parseInt(valintaString);
+            } catch (Exception e) {
+                System.out.println("Syötteesi oli virheellinen. Ole kiltti ja yritä uudelleen.");
             }
-            if (valinta == 2) {
-                System.out.println("Anna tunnus: ");
-                String tun = lukija.next();
-                System.out.print("Anna salasana: ");
-                String sal = lukija.next();
-                if (hallinta.Loytyyko(tun, sal) == true) {
-                    ToimintaLogiikka kirjauduttuSisaanToimintalogiikkaan = new ToimintaLogiikka(hallinta.HaeKayttaja(tun, sal), server);
-                } else {
-                    System.out.println("Kirjautuminen epäonnistui, tarkasta tunnus ja salasana.");
-                }
-            }
-            if (valinta == 3) {
-                tunnuksenPoisto(lukija, hallinta);
-            }
-            if (valinta == 4) {
-                System.out.println("Kiitoksia käytöstä & hyvää päivänjatkoa!\n");
-                valinta = 4;
-            }
-            if (valinta < 1 || valinta > 4) {
-                System.out.println("Ole hyvä ja valitse 1-4 väliltä.\n");
-            }
+            valinta = valintaLogiikka(valinta, lukija, hallinta);
         }
     }
 
@@ -114,6 +90,11 @@ public class Kirjautuminen {
         Juoma j1 = new Juoma("Black Rat", "Natural dry apple cider", 4.7, "Matti");
         Juoma j2 = new Juoma("Karhu 3", "Perusbisse", 4.7, "Hattiwatti");
         Juoma j3 = new Juoma("sidukka", "perussidu", 4.7, "Hattiwatti");
+
+        JuomaTilaus jT1 = new JuomaTilaus(j1, 5);
+        JuomaTilaus jT2 = new JuomaTilaus(j2, 10);
+        JuomaTilaus jT3 = new JuomaTilaus(j3, 15);
+
         Baari b1 = new Baari("William K", "Mukava oluthuone");
         Baari b2 = new Baari("Koti", "Oma koti kullan kallis");
         BaariReissu br1 = new BaariReissu();
@@ -130,14 +111,56 @@ public class Kirjautuminen {
         server.save(b2);
 
         JuomaHallinta jHallinta = new JuomaHallinta(server);
-        br1.lisaaJuoma(jHallinta.LoytyykoJuomaNimellaPalautetaanJuoma("Black Rat"), 5);
-        br1.lisaaJuoma(jHallinta.LoytyykoJuomaNimellaPalautetaanJuoma("Karhu 3"), 3);
-        br1.lisaaJuoma(jHallinta.LoytyykoJuomaNimellaPalautetaanJuoma("sidukka"), 3);
-        br2.lisaaJuoma(jHallinta.LoytyykoJuomaNimellaPalautetaanJuoma("sidukka"), 3);
+        br1.lisaaJuoma(jT1);
+        br1.lisaaJuoma(jT2);
 
+        
+        br2.lisaaJuoma(jT3);
         server.save(br1);
         server.save(br2);
 
 
+    }
+
+    public void kirjautuminen(Scanner lukija, KayttajaHallinta hallinta) throws Exception {
+        System.out.println("Anna tunnus: ");
+        String tun = lukija.next();
+        System.out.print("Anna salasana: ");
+        String sal = lukija.next();
+        if (hallinta.Loytyyko(tun, sal) == true) {
+            ToimintaLogiikka kirjauduttuSisaanToimintalogiikkaan = new ToimintaLogiikka(hallinta.HaeKayttaja(tun, sal), server);
+        } else {
+            System.out.println("Kirjautuminen epäonnistui, tarkasta tunnus ja salasana.");
+        }
+    }
+
+    public void tulostaMenu() {
+        System.out.println("---------------------");
+        System.out.println("1. Lisää käyttäjä");
+        System.out.println("2. Kirjaudu sisään");
+        System.out.println("3. Poista käyttäjä");
+        System.out.println("4. Lopeta");
+        System.out.println("---------------------");
+        System.out.print("Anna valintanumero: ");
+    }
+
+    public int valintaLogiikka(int valinta, Scanner lukija, KayttajaHallinta hallinta) throws Exception, IOException {
+        if (valinta == 1) {
+            tunnuksenLisays(lukija, hallinta);
+        }
+        if (valinta == 2) {
+            kirjautuminen(lukija, hallinta);
+        }
+        if (valinta == 3) {
+            tunnuksenPoisto(lukija, hallinta);
+        }
+        if (valinta == 4) {
+            System.out.println("Kiitoksia käytöstä & hyvää päivänjatkoa!\n");
+            valinta = 4;
+        }
+        if (valinta < 1 || valinta > 4) {
+            System.out.println("Valitse 1-4 väliltä.\n");
+        }
+        return valinta;
     }
 }
